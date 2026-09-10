@@ -1,0 +1,53 @@
+# Ambiente virtual
+.venv/
+
+# Cache e arquivos compilados do Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Credenciais e variáveis locais
+.env
+.env.*
+!.env.example
+
+# Configurações locais do editor
+.vscode/
+
+# Arquivos de dados que não devem entrar no GitHub
+*.xlsx
+*.xls
+*.parquet
+
+# Arquivos temporários do sistema
+Thumbs.db
+.DS_Store
+
+
+# Dados locais e artefatos gerados
+data/
+temp/
+outputs/
+
+# Logs de execução
+logs/
+*.log
+
+# Credenciais, certificados e chaves
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Bancos locais
+*.db
+*.sqlite
+*.sqlite3
+
+# Arquivos temporários do Jupyter
+.ipynb_checkpoints/
+
+# Relatórios de cobertura de testes
+.coverage
+htmlcov/
+coverage.xml

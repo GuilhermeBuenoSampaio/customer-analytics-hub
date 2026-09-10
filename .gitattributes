@@ -1,0 +1,28 @@
+# Detecção automática de arquivos de texto
+* text=auto
+
+# Código e documentação com LF para compatibilidade multiplataforma
+*.py text eol=lf
+*.sql text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.env.example text eol=lf
+
+# Scripts específicos do Windows
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Arquivos binários
+*.xlsx binary
+*.xls binary
+*.parquet binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.pbix binary
