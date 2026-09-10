@@ -38,11 +38,13 @@ O arquivo completo será preservado no Azure Data Lake Storage Gen2. Os dados pe
 
 O projeto utiliza arquitetura em camadas no Azure Data Lake Storage Gen2:
 
-- `00_landing`: recebimento e preservação do arquivo original;
-- `01.1_bronze_raw`: dados brutos acompanhados dos metadados de ingestão;
-- `02_silver`: dados tipados, padronizados, normalizados e validados em Parquet;
-- `03_gold`: estruturas analíticas preparadas para consumo;
-- `03_gold_exports`: exportações destinadas às ferramentas consumidoras.
+- `00_landing`: recebimento e preservação imutável do arquivo original;
+- `01_bronze`: dados brutos ingeridos, sem correções de negócio e acompanhados de rastreabilidade;
+- `02_silver`: dados tipados, limpos, normalizados, validados e armazenados em Parquet;
+- `03_gold`: fatos, dimensões, métricas governadas e conjuntos prontos para análise;
+- `04_exports`: arquivos preparados para ferramentas e consumidores externos;
+- `metadata`: manifestos de ingestão, hashes, parâmetros e informações de rastreabilidade;
+- `quarantine`: registros rejeitados pelas regras de qualidade, preservados para investigação.
 
 ## Estratégia de processamento
 
