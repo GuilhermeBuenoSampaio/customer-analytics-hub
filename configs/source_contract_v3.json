@@ -1,0 +1,73 @@
+{
+  "contract_version": "1.0",
+  "source": {
+    "file_name": "FOOD_COMMERCE_DIGITAL_TWIN_v3_DADOS_SUJOS_INTENCIONAIS.xlsx",
+    "file_format": "xlsx",
+    "sheet_name": "25_bronze_transactions_sujo",
+    "sha256": "93AFA725EE95695D4F997DEEF2042B0A28EAB43E44E01AA4EAA392E963FAE070"
+  },
+  "expected_structure": {
+    "data_rows": 6556,
+    "columns": 47,
+    "header_row_included_in_data_rows": false
+  },
+  "analytical_columns": [
+    "Pedido_ID",
+    "Cliente_ID",
+    "Idade",
+    "Gênero",
+    "Cidade",
+    "Estado",
+    "Estado_Civil",
+    "Escolaridade",
+    "Situacao_Profissional",
+    "Profissão",
+    "Tempo_Experiencia_Anos",
+    "Renda_Mensal_Cliente",
+    "Ciclo_Vida_Cliente",
+    "Intervalo_Medio_Compras_Dias",
+    "Categoria_Favorita",
+    "Forma_Pagamento_Preferida",
+    "Dia_Semana_Preferido",
+    "Ticket_Medio_Cliente",
+    "Id_Item",
+    "Categoria_Item",
+    "Produto",
+    "Medida",
+    "Quantidade",
+    "Custo_Unitario",
+    "Preco_Unitario_Lista",
+    "Valor_Compra",
+    "Forma_Pagamento",
+    "Data_Compra",
+    "Horario_Compra",
+    "Mes_Ref",
+    "Campanha",
+    "Evento_Externo",
+    "Canal_Marketing",
+    "Cupom_Utilizado",
+    "Desconto_Percentual",
+    "Frete",
+    "Frete_Gratis",
+    "Transportadora",
+    "Prazo_Entrega_Prometido",
+    "Prazo_Entrega_Real",
+    "Atraso_Entrega",
+    "Avaliacao_Cliente",
+    "Pontos_Fidelidade"
+  ],
+  "dq_columns": [
+    "DQ_Issue_ID",
+    "DQ_Causa_Negocio",
+    "DQ_Tratamento_Sugerido",
+    "DQ_Gravidade"
+  ],
+  "policies": {
+    "source_read_only": true,
+    "preserve_original_values_in_bronze": true,
+    "use_dq_columns_during_discovery": false,
+    "use_dq_columns_for_final_validation": true,
+    "silver_must_be_derived_only_from_canonical_sheet": true,
+    "other_workbook_sheets_are_pipeline_inputs": false
+  }
+}
