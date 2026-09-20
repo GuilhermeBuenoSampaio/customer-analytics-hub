@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import sys
 import uuid
@@ -10,9 +11,11 @@ from pathlib import Path
 
 import pandas as pd
 import pyodbc
+from dotenv import load_dotenv
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
+load_dotenv(PROJECT_ROOT / ".env")
 GOLD_DIR = PROJECT_ROOT / "data" / "gold" / "food_commerce" / "gold_v3"
 SPEC_PATH = (
     PROJECT_ROOT / "outputs" / "modeling" / "gold_v3"
@@ -54,13 +57,19 @@ def sha256_file(path: Path) -> str:
 
 
 def connection_string() -> str:
-    return (
+    base = (
         f"DRIVER={{{env('CUSTOMER_ANALYTICS_SQL_DRIVER')}}};"
         f"SERVER={env('CUSTOMER_ANALYTICS_SQL_SERVER')};"
         f"DATABASE={env('CUSTOMER_ANALYTICS_SQL_DATABASE')};"
-        f"UID={env('CUSTOMER_ANALYTICS_SQL_USER')};"
-        f"PWD={env('CUSTOMER_ANALYTICS_SQL_PASSWORD')};"
         "Encrypt=yes;TrustServerCertificate=yes;"
+    )
+    trusted = os.getenv("CUSTOMER_ANALYTICS_SQL_TRUSTED_CONNECTION", "yes")
+    if trusted.strip().lower() in {"1", "true", "yes", "sim"}:
+        return base + "Trusted_Connection=yes;"
+    return (
+        base
+        + f"UID={env('CUSTOMER_ANALYTICS_SQL_USER')};"
+        + f"PWD={env('CUSTOMER_ANALYTICS_SQL_PASSWORD')};"
     )
 
 
@@ -281,6 +290,25 @@ def main() -> None:
         connection.close()
     print(f"[OK] {len(TABLES)} tabelas Gold carregadas no SQL Server.")
     print(f"[OK] Execução auditada: {execution_id}")
+    log_dir = PROJECT_ROOT / "outputs" / "logs" / "sql_load"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / f"sql_load_{started.strftime('%Y%m%dT%H%M%S_%fZ')}.json"
+    log_path.write_text(
+        json.dumps(
+            {
+                "execution_id": str(execution_id),
+                "status": "success",
+                "tables": len(TABLES),
+                "rows": total_rows,
+                "started_utc": started.isoformat(),
+                "finished_utc": datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    print(f"[OK] Log local da carga: {log_path}")
     print("RESULTADO_FINAL: APROVADO")
 
 

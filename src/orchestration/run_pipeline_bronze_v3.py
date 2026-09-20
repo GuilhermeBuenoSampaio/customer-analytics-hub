@@ -1,11 +1,15 @@
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(PROJECT_ROOT / ".env")
 
 INFRASTRUCTURE_DIR = PROJECT_ROOT / "src" / "infrastructure"
 if str(INFRASTRUCTURE_DIR) not in sys.path:
@@ -151,7 +155,31 @@ ETAPAS = [
             / "step_12_materializacao_modelo_dimensional_gold.py"
         ),
     },
+    {
+        "numero": 13,
+        "nome": "Carga Gold no SQL Server",
+        "script": PROJECT_ROOT / "src" / "gold" / "loading" / "step_13_carga_gold_sql_server.py",
+        "enabled_env": "ENABLE_SQL_SERVER_LOAD",
+    },
+    {
+        "numero": 14,
+        "nome": "Execução sequencial das análises SQL",
+        "script": PROJECT_ROOT / "src" / "sql" / "execution" / "run_sql_pipeline.py",
+        "enabled_env": "ENABLE_SQL_PIPELINE",
+    },
 ]
+
+
+def flag_ativa(nome: str, padrao: bool = False) -> bool:
+    valor = os.getenv(nome)
+    if valor is None:
+        return padrao
+    return valor.strip().casefold() in {"1", "true", "yes", "sim", "on"}
+
+
+def etapa_habilitada(etapa: dict) -> bool:
+    variavel = etapa.get("enabled_env")
+    return True if not variavel else flag_ativa(variavel)
 
 
 def agora_utc():
@@ -270,8 +298,9 @@ def executar_etapa(etapa, run_id):
         codigo_saida = resultado.returncode
         erro_execucao = None
         publicacoes_azure = []
+        documentacao = None
 
-        if codigo_saida == 0:
+        if codigo_saida == 0 and flag_ativa("ENABLE_AZURE_PUBLISH"):
             publicacoes_azure = publicar_artefatos_modificados(
                 project_root=PROJECT_ROOT,
                 inicio_timestamp=inicio.timestamp(),
@@ -279,12 +308,40 @@ def executar_etapa(etapa, run_id):
                 etapa=etapa["numero"],
             )
 
+        if codigo_saida == 0 and flag_ativa("REQUIRE_DOCUMENTATION", True):
+            agente_documentacao = (
+                PROJECT_ROOT / "src" / "documentation" / "documentation_agent.py"
+            )
+            resultado_doc = subprocess.run(
+                [
+                    sys.executable,
+                    str(agente_documentacao),
+                    "--stage",
+                    str(etapa["numero"]),
+                    "--run-id",
+                    run_id,
+                    "--technical-status",
+                    "success",
+                ],
+                cwd=PROJECT_ROOT,
+                check=False,
+            )
+            documentacao = {
+                "obrigatoria": True,
+                "codigo_saida": resultado_doc.returncode,
+                "status": "success" if resultado_doc.returncode == 0 else "failed",
+            }
+            if resultado_doc.returncode != 0:
+                codigo_saida = -3
+                erro_execucao = "Falha no gate obrigatório de documentação."
+
     except OSError as erro:
         codigo_saida = -1
         erro_execucao = (
             f"{type(erro).__name__}: {erro}"
         )
         publicacoes_azure = []
+        documentacao = None
 
     except Exception as erro:
         codigo_saida = -2
@@ -293,6 +350,7 @@ def executar_etapa(etapa, run_id):
             f"{type(erro).__name__}: {erro}"
         )
         publicacoes_azure = []
+        documentacao = None
 
     fim = agora_utc()
     duracao = (fim - inicio).total_seconds()
@@ -311,6 +369,7 @@ def executar_etapa(etapa, run_id):
         "status": "success" if aprovada else "failed",
         "erro_execucao": erro_execucao,
         "publicacoes_azure": publicacoes_azure,
+        "documentacao": documentacao,
     }
 
     if aprovada:
@@ -430,6 +489,12 @@ def executar_pipeline():
         print("[OK] Configuração da pipeline validada")
 
         for etapa in ETAPAS:
+            if not etapa_habilitada(etapa):
+                print(
+                    f"[IGNORADA] Etapa {etapa['numero']:02d}: {etapa['nome']} "
+                    f"({etapa['enabled_env']}=false)"
+                )
+                continue
             registro_etapa = executar_etapa(etapa, run_id)
             registro_pipeline["etapas"].append(
                 registro_etapa
@@ -484,22 +549,25 @@ def executar_pipeline():
             inicio_pipeline,
         )
 
-        try:
-            PublicadorAzure().publicar_arquivo(
-                caminho=caminho_log,
-                destino=(
-                    "metadata/customer_analytics/pipeline_runs/"
-                    f"{caminho_log.name}"
-                ),
-                run_id=run_id,
-                etapa="pipeline",
-            )
-            print("[OK] Log da execução publicado no Azure")
-        except Exception as erro_upload_log:
-            print(
-                "[AVISO] Log local preservado, mas o envio ao Azure falhou: "
-                f"{type(erro_upload_log).__name__}: {erro_upload_log}"
-            )
+        if flag_ativa("ENABLE_AZURE_PUBLISH"):
+            try:
+                PublicadorAzure().publicar_arquivo(
+                    caminho=caminho_log,
+                    destino=(
+                        "metadata/customer_analytics/pipeline_runs/"
+                        f"{caminho_log.name}"
+                    ),
+                    run_id=run_id,
+                    etapa="pipeline",
+                )
+                print("[OK] Log da execução publicado no Azure")
+            except Exception as erro_upload_log:
+                print(
+                    "[AVISO] Log local preservado, mas o envio ao Azure falhou: "
+                    f"{type(erro_upload_log).__name__}: {erro_upload_log}"
+                )
+        else:
+            print("[INFO] Publicação Azure desabilitada por configuração.")
 
         imprimir_resumo(registro_pipeline)
 

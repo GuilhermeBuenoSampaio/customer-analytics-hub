@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import hashlib
+import mimetypes
 import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
 from azure.identity import DefaultAzureCredential
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceNotFoundError
 from azure.storage.blob import BlobServiceClient, ContentSettings
 
 
@@ -26,13 +28,17 @@ def calcular_sha256(caminho: Path) -> str:
 
 
 def _content_type(caminho: Path) -> str:
-    if caminho.suffix.lower() == ".xlsx":
-        return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    if caminho.suffix.lower() == ".parquet":
-        return "application/vnd.apache.parquet"
-    if caminho.suffix.lower() == ".json":
-        return "application/json"
-    return "application/octet-stream"
+    tipos = {
+        ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        ".parquet": "application/vnd.apache.parquet",
+        ".py": "text/x-python",
+        ".sql": "application/sql",
+        ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    }
+    return tipos.get(
+        caminho.suffix.lower(),
+        mimetypes.guess_type(caminho.name)[0] or "application/octet-stream",
+    )
 
 
 def destino_azure(caminho: Path, project_root: Path) -> str:
@@ -57,9 +63,37 @@ def destino_azure(caminho: Path, project_root: Path) -> str:
 
 class PublicadorAzure:
     def __init__(self) -> None:
-        credential = DefaultAzureCredential(exclude_interactive_browser_credential=False)
-        service = BlobServiceClient(account_url=ACCOUNT_URL, credential=credential)
-        self.container = service.get_container_client(CONTAINER_NAME)
+        self.credential = DefaultAzureCredential(exclude_interactive_browser_credential=False)
+        self.service = BlobServiceClient(account_url=ACCOUNT_URL, credential=self.credential)
+        self.container = self.service.get_container_client(CONTAINER_NAME)
+
+    def testar_conexao(self) -> dict:
+        try:
+            propriedades = self.container.get_container_properties()
+            return {
+                "conectado": True,
+                "storage_account": STORAGE_ACCOUNT,
+                "container": CONTAINER_NAME,
+                "ultima_modificacao_utc": propriedades.last_modified.isoformat(),
+            }
+        except ClientAuthenticationError as erro:
+            raise RuntimeError("Falha de autenticação. Execute 'az login'.") from erro
+        except ResourceNotFoundError as erro:
+            raise RuntimeError(f"Container não encontrado: {CONTAINER_NAME}") from erro
+        except HttpResponseError as erro:
+            if erro.status_code == 403:
+                raise PermissionError(
+                    "Acesso negado. Verifique a função Storage Blob Data Contributor."
+                ) from erro
+            raise
+
+    def listar_arquivos(self, prefixo: str | None = None, limite: int = 20) -> list[dict]:
+        arquivos = []
+        for item in self.container.list_blobs(name_starts_with=prefixo):
+            arquivos.append({"nome": item.name, "tamanho_bytes": item.size})
+            if len(arquivos) >= limite:
+                break
+        return arquivos
 
     def publicar_arquivo(
         self,
@@ -76,9 +110,8 @@ class PublicadorAzure:
         try:
             propriedades = blob.get_blob_properties()
             remoto_igual = propriedades.metadata.get("sha256") == sha256
-        except Exception as erro:
-            if type(erro).__name__ != "ResourceNotFoundError":
-                raise
+        except ResourceNotFoundError:
+            pass
 
         registro = {
             "arquivo_local": str(caminho),
@@ -120,7 +153,9 @@ def localizar_artefatos_modificados(
     for raiz in raizes:
         if not raiz.is_dir():
             continue
-        for extensao in ("*.xlsx", "*.parquet"):
+        for extensao in (
+            "*.docx", "*.json", "*.md", "*.parquet", "*.pdf", "*.txt", "*.xlsx"
+        ):
             for caminho in raiz.rglob(extensao):
                 if caminho.name.startswith("~$") or ".tmp." in caminho.name:
                     continue
@@ -150,4 +185,3 @@ def publicar_artefatos_modificados(
         )
         for arquivo in artefatos
     ]
-

@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "shared_semantic_layer": {
+    "schema": "gold",
+    "dimensions": [
+      "dim_data",
+      "dim_horario",
+      "dim_geografia",
+      "dim_pagamento",
+      "dim_campanha",
+      "dim_canal_marketing",
+      "dim_evento_externo",
+      "dim_transportadora",
+      "dim_cliente",
+      "dim_produto"
+    ],
+    "facts": [
+      "fato_item_pedido",
+      "fato_pedido",
+      "fato_entrega",
+      "fato_cliente_mes"
+    ],
+    "metrics_catalog": "docs/governance/metrics_catalog.md"
+  },
+  "domains": [
+    {"order": 1, "name": "eda_geral", "sql_folder": "sql/03_eda", "status": "in_progress"},
+    {"order": 2, "name": "comercial", "sql_folder": "sql/04_business/commercial", "status": "planned"},
+    {"order": 3, "name": "financeiro", "sql_folder": "sql/04_business/financial", "status": "planned"},
+    {"order": 4, "name": "logistica", "sql_folder": "sql/04_business/logistics", "status": "planned"},
+    {"order": 5, "name": "marketing", "sql_folder": "sql/04_business/marketing", "status": "planned"}
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "artifact": "source_code_configs_and_markdown_docs",
+      "formats": ["py", "sql", "json", "md", "ps1", "txt"],
+      "destinations": ["local", "github"],
+      "exclude": [".env", "outputs", "data", "temp"]
+    },
+    {
+      "artifact": "analytical_data",
+      "formats": ["parquet", "xlsx"],
+      "destinations": ["local", "azure"],
+      "github": false
+    },
+    {
+      "artifact": "execution_evidence",
+      "formats": ["json", "xlsx"],
+      "paths": ["outputs/logs", "outputs/manifests", "outputs/quality"],
+      "destinations": ["local", "azure"],
+      "github": false
+    },
+    {
+      "artifact": "portfolio_documentation",
+      "formats": ["md"],
+      "paths": ["docs"],
+      "destinations": ["local", "github"]
+    }
+  ]
+}

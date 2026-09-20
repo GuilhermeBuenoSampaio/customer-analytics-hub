@@ -6,9 +6,10 @@ Projeto de engenharia, arquitetura e análise de dados desenvolvido para demonst
 
 Em desenvolvimento.
 
-Etapa atual: fundação técnica e preparação do ambiente.
+Etapa atual: EDA geral sobre o modelo dimensional Gold.
 
-Nenhum resultado analítico foi publicado até o momento.
+As etapas técnicas 1 a 12 possuem evidências materiais e documentação retroativa.
+As etapas SQL permanecem sujeitas à execução e validação no ambiente local.
 
 ## Objetivo
 
@@ -158,3 +159,42 @@ Tecnologias adicionais serão incorporadas somente quando resolverem uma necessi
 Os códigos específicos e necessários para reproduzir este projeto permanecerão neste repositório.
 
 Versões genéricas e reutilizáveis de funções Python e consultas SQL serão publicadas separadamente no repositório Snippets.
+
+## Orquestração e documentação automática
+
+O orquestrador principal executa as etapas Python em sequência e pode, por configuração, carregar o SQL Server e executar os arquivos SQL. Azure, SQL e documentação são controlados no `.env`:
+
+```text
+ENABLE_AZURE_PUBLISH=false
+ENABLE_SQL_SERVER_LOAD=false
+ENABLE_SQL_PIPELINE=false
+REQUIRE_DOCUMENTATION=true
+```
+
+Com o Azure desabilitado, o processamento local não é bloqueado por autenticação externa. Com `REQUIRE_DOCUMENTATION=true`, uma etapa somente é aprovada depois da geração e validação de seu documento de rastreabilidade.
+
+Execução completa configurada:
+
+```powershell
+python .\src\orchestration\run_pipeline_bronze_v3.py
+```
+
+Documentação retroativa:
+
+```powershell
+python .\src\documentation\documentation_agent.py --retroactive
+```
+
+O provedor documental padrão é `deterministic`, gratuito e sem API. Opcionalmente, `DOCUMENTATION_PROVIDER=ollama` habilita síntese com IA executada localmente, mantendo evidências e aprovação sob regras determinísticas.
+
+## Domínios analíticos
+
+A EDA geral e as análises comercial, financeira, logística e de marketing reutilizam as mesmas 10 dimensões, 4 fatos e definições canônicas de métricas. A configuração está em `configs/analysis_domains.json`, e as definições ficam em `docs/governance/metrics_catalog.md`.
+
+## Exportação segura
+
+Para gerar um ZIP sem `.env`, `.venv`, `.git`, dados e artefatos locais, execute:
+
+```powershell
+.\scripts\export_project_safe.ps1
+```
