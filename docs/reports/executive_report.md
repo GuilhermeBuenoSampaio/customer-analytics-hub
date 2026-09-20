@@ -2,7 +2,7 @@
 
 ## Situação atual
 
-O Customer Analytics Hub possui 13 etapa(s) tecnicamente aprovadas e documentadas.
+O Customer Analytics Hub possui 14 etapa(s) tecnicamente aprovadas e documentadas.
 
 ## Entregas aprovadas
 
@@ -19,6 +19,7 @@ O Customer Analytics Hub possui 13 etapa(s) tecnicamente aprovadas e documentada
 - Especificação do modelo dimensional Gold
 - Materialização do modelo dimensional Gold
 - Carga Gold no SQL Server
+- Execução sequencial das análises SQL
 
 ## Observação
 

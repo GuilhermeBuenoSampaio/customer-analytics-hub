@@ -120,13 +120,13 @@
     },
     "14": {
       "name": "Execução sequencial das análises SQL",
-      "status": "pending_evidence",
+      "status": "approved",
       "technical_status": "success",
-      "run_id": "retroativo_inicial_001",
+      "run_id": "etapa14_sql_aprovada_001",
       "document": "docs/traceability/stages/step_14_execucao_sequencial_das_analises_sql.md",
-      "evidence_count": 0,
-      "updated_utc": "2026-09-20T15:45:21.388287+00:00"
+      "evidence_count": 1,
+      "updated_utc": "2026-09-20T18:44:49.306993+00:00"
     }
   },
-  "updated_utc": "2026-09-20T16:17:25.479128+00:00"
+  "updated_utc": "2026-09-20T18:44:49.306993+00:00"
 }

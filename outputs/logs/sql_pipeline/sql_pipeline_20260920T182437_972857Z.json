@@ -1,0 +1,1896 @@
+{
+  "pipeline": "customer_analytics_sql",
+  "inicio_utc": "2026-09-20T18:24:37.972857+00:00",
+  "status": "success",
+  "scripts": [
+    {
+      "arquivo": "sql/00_setup/01_criacao_schemas.sql",
+      "status": "success",
+      "lotes": 6,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "banco_atual",
+            "schema_criado"
+          ],
+          "linhas": 4,
+          "sha256": "f6d68227f6086b3b97755f8fbce3c6c0f32894a56b7f2601f5b9f7e17b6242e9",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:24:38.044449+00:00",
+      "conjuntos_resultado": 1,
+      "linhas_resultado": 4,
+      "fim_utc": "2026-09-20T18:24:38.061070+00:00",
+      "duracao_segundos": 0.0166
+    },
+    {
+      "arquivo": "sql/01_quality/01_validacao_integral_carga_gold.sql",
+      "status": "success",
+      "lotes": 2,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "schema_nome",
+            "tabela",
+            "quantidade_linhas"
+          ],
+          "linhas": 14,
+          "sha256": "02a4e589257e0dcd4f4ddf02cff67129614d4904aa705d6a74f44f5a90d41c45",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Execucao_ID",
+            "Inicio_UTC",
+            "Fim_UTC",
+            "Status",
+            "Diretorio_Fonte",
+            "Quantidade_Tabelas",
+            "Quantidade_Linhas",
+            "Erro"
+          ],
+          "linhas": 3,
+          "sha256": "fbbca051cf1713f366201892757951c7711ddaf2d1f3972301ae4e507acb8324",
+          "status_encontrados": [
+            "APROVADO",
+            "REPROVADO"
+          ],
+          "gate_validacao_aplicado": false
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Execucao_ID",
+            "Tabela",
+            "Linhas_Parquet",
+            "Linhas_SQL",
+            "SHA256_Parquet",
+            "Status"
+          ],
+          "linhas": 14,
+          "sha256": "1e474444c671037347e2d7d8b9b7957bcf8c022a80e4d3abfa5cabd703399648",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "quantidade_chaves_estrangeiras"
+          ],
+          "linhas": 1,
+          "sha256": "741451fddea5a4c87ab16f573c86fe57287c9883428ecdfe0289c645e17ffbe2",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:24:38.062069+00:00",
+      "conjuntos_resultado": 4,
+      "linhas_resultado": 32,
+      "fim_utc": "2026-09-20T18:24:38.217298+00:00",
+      "duracao_segundos": 0.1552
+    },
+    {
+      "arquivo": "sql/03_eda/00_eda_geral_parametros_gold.sql",
+      "status": "success",
+      "lotes": 2,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "banco_analisado",
+            "data_inicio_observada",
+            "data_fim_observada",
+            "data_corte_eda",
+            "quantidade_dias_calendario",
+            "ano_inicial",
+            "ano_final"
+          ],
+          "linhas": 1,
+          "sha256": "44b5de0832c404d523a54edba45e426de25f8bbcfcbb79ef1ea1d9f948cadc27",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "quantidade_registros_fato_pedido",
+            "quantidade_pedidos_unicos",
+            "quantidade_clientes_com_compra",
+            "quantidade_produtos_vendidos",
+            "quantidade_total_itens",
+            "receita_bruta_total",
+            "descontos_concedidos_total",
+            "receita_liquida_total",
+            "custo_total",
+            "margem_bruta_total",
+            "ticket_medio_por_pedido",
+            "quantidade_media_itens_por_pedido",
+            "taxa_desconto_global_percentual",
+            "margem_bruta_global_percentual"
+          ],
+          "linhas": 1,
+          "sha256": "9941baf5f9e21ea6cd63fc4440e9d284299c0bffe667f581812246099ca19760",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:24:38.218296+00:00",
+      "conjuntos_resultado": 2,
+      "linhas_resultado": 2,
+      "fim_utc": "2026-09-20T18:24:38.242510+00:00",
+      "duracao_segundos": 0.0242
+    },
+    {
+      "arquivo": "sql/03_eda/01_visao_geral_integridade.sql",
+      "status": "success",
+      "lotes": 10,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Tabela",
+            "Tipo_Tabela",
+            "Total_Linhas",
+            "Total_Esperado",
+            "Status_Validacao"
+          ],
+          "linhas": 14,
+          "sha256": "ab3654df1666a5657c7b60c6f6473b363b7106da1a2781632320e8bbe1d7274d",
+          "status_encontrados": [
+            "APROVADO",
+            "INFORMATIVO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Total_Tabelas_Gold",
+            "Tabelas_Com_PK",
+            "Tabelas_Sem_PK",
+            "Status_Validacao"
+          ],
+          "linhas": 1,
+          "sha256": "b0a33a8d7c436a1e43972e37b597366867bfc8dc6c404483f7baeff9e8db41e3",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Schema_Nome",
+            "Tabela",
+            "Nome_PK",
+            "Coluna_PK",
+            "Ordem_Coluna"
+          ],
+          "linhas": 14,
+          "sha256": "c416a943318f9506591e81cdc574ae114350f19e3b1606ac5584f92aa9647422",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Total_Chaves_Estrangeiras",
+            "FKs_Desabilitadas",
+            "FKs_Nao_Confiaveis",
+            "Status_Validacao"
+          ],
+          "linhas": 1,
+          "sha256": "bec5381d0ea200121d2526cb53b5d394e2d0e5801833eb12322c26f4ab419e2b",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Tabela_Fato",
+            "Coluna_FK",
+            "Tabela_Dimensao",
+            "Coluna_Referenciada",
+            "Nome_FK",
+            "Status_Relacionamento"
+          ],
+          "linhas": 22,
+          "sha256": "8f71ce0aebe4aba576d9a95ac01427822de4aa1ca4caba29b095ef03e96ef8b6",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Tabela",
+            "Total_Linhas",
+            "Quantidade_FKs",
+            "Total_FKs_Nulas",
+            "Status_Validacao"
+          ],
+          "linhas": 4,
+          "sha256": "28c1268ad2b4a7a176b273c807db7d1c574124815565905abab024eaa8959387",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Tabela",
+            "Grao_Validado",
+            "Grupos_Duplicados",
+            "Status_Validacao"
+          ],
+          "linhas": 10,
+          "sha256": "0bb52f53b834a9a4ed00b17ceda354c29c02f7285feb5694beddae9d9667c0ec",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 8,
+          "colunas": [
+            "Tabela",
+            "Grao_Validado",
+            "Grupos_Duplicados",
+            "Status_Validacao"
+          ],
+          "linhas": 4,
+          "sha256": "ad97cfe57fcc22fb29b4c6b67994286c24725da6f463e0140d6a596c11179a41",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:24:38.243509+00:00",
+      "conjuntos_resultado": 8,
+      "linhas_resultado": 70,
+      "fim_utc": "2026-09-20T18:24:38.614688+00:00",
+      "duracao_segundos": 0.3712
+    },
+    {
+      "arquivo": "sql/03_eda/02_analise_univariada.sql",
+      "status": "success",
+      "lotes": 23,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Unidade_Analise",
+            "Variavel",
+            "Total_Observacoes",
+            "Valores_Validos",
+            "Valores_Nulos",
+            "Percentual_Nulos",
+            "Media",
+            "Mediana",
+            "Moda",
+            "Frequencia_Moda",
+            "Minimo",
+            "Maximo",
+            "Amplitude",
+            "Desvio_Padrao",
+            "Coeficiente_Variacao_Percentual",
+            "P01",
+            "P05",
+            "P10",
+            "Q1_P25",
+            "P50_Mediana",
+            "Q3_P75",
+            "P90",
+            "P95",
+            "P99",
+            "IQR",
+            "Limite_Inferior_Boxplot",
+            "Limite_Superior_Boxplot",
+            "Aplicabilidade_Metodo_IQR",
+            "Possiveis_Outliers",
+            "Percentual_Possiveis_Outliers"
+          ],
+          "linhas": 46,
+          "sha256": "32b2e8c46226eb8de8283e531caab873bcd5ccd15c0e3dfcdd83aecba976bf91",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Unidade_Analise",
+            "Variavel",
+            "Categoria",
+            "Frequencia_Absoluta",
+            "Total_Observacoes",
+            "Frequencia_Percentual",
+            "Posicao_Frequencia",
+            "Status_Preenchimento"
+          ],
+          "linhas": 275,
+          "sha256": "d5c6e5c4ded7852e8efc1cf7ff50d70aeef7a3839cfdaf3cf72c7cc5327ecf51",
+          "status_encontrados": [
+            "PREENCHIDO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Unidade_Analise",
+            "Variavel",
+            "Moda",
+            "Frequencia_Moda",
+            "Percentual_Moda"
+          ],
+          "linhas": 71,
+          "sha256": "e46e46255f1d343afaacb022956227ab525939a5d812b109429ded0f5f7c1ab4",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:24:38.614688+00:00",
+      "conjuntos_resultado": 3,
+      "linhas_resultado": 392,
+      "fim_utc": "2026-09-20T18:25:32.659175+00:00",
+      "duracao_segundos": 54.0445
+    },
+    {
+      "arquivo": "sql/03_eda/03_analise_bivariada.sql",
+      "status": "success",
+      "lotes": 15,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Variavel",
+            "Total_Clientes",
+            "Ausentes",
+            "Percentual_Ausente",
+            "Status_Uso"
+          ],
+          "linhas": 6,
+          "sha256": "6d74dbfb4aa2054bfab535c675116ad1ac7684e9018c097bb302418f26960fc8",
+          "status_encontrados": [
+            "DISPONIVEL"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Dimensao",
+            "Segmento",
+            "Clientes",
+            "Pedidos",
+            "Pedidos_Medios_Cliente",
+            "Receita_Total",
+            "Receita_Media_Cliente",
+            "Ticket_Medio_Pedido",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 22,
+          "sha256": "42d826f176f061795b0b78ef5e3fa2f8c7880ea78903880dd4c620b07ee39929",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Faixa",
+            "Clientes",
+            "Pedidos",
+            "Receita_Media_Cliente",
+            "Ticket_Medio_Pedido"
+          ],
+          "linhas": 6,
+          "sha256": "a20293f937bcf59b976899d05b94ad0853aa84dcfdcb8b789003c94363031bb3",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Quartil_Renda",
+            "Clientes",
+            "Renda_Min",
+            "Renda_Max",
+            "Receita_Media_Cliente",
+            "Pedidos_Medios_Cliente",
+            "Ticket_Medio_Pedido"
+          ],
+          "linhas": 4,
+          "sha256": "0a8cc5a089a6064a16b83d2fbfb43ad1252f0a4de08d23b0836c31e1ebb90ed7",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Regiao",
+            "Estado",
+            "Cidade",
+            "Clientes",
+            "Pedidos",
+            "Receita_Total",
+            "Receita_Media_Cliente",
+            "Ticket_Medio_Pedido"
+          ],
+          "linhas": 15,
+          "sha256": "e5608762ef4880cc1287e2ab62d1585725dbcff3e8a4f29e1624370983ec5d15",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Categoria_Item",
+            "Produtos_Vendidos",
+            "Linhas_Item",
+            "Unidades",
+            "Pedidos",
+            "Clientes",
+            "Receita_Total",
+            "Margem_Total",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 13,
+          "sha256": "acf0c7fa26b2608f0df6e4f51dd30c2f846d0cfd2a6899d1c7764f9ce181a48a",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Dimensao",
+            "Categoria",
+            "Pedidos",
+            "Clientes",
+            "Itens_Medios",
+            "Receita_Total",
+            "Ticket_Medio",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 27,
+          "sha256": "0352707ee685f3b146b111f53c919a4843b3eacbf3dcd2d6232bc4d1f706b5ad",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 8,
+          "colunas": [
+            "Dimensao",
+            "Categoria",
+            "Entregas",
+            "Atraso_Medio",
+            "Frete_Medio",
+            "Avaliacao_Media"
+          ],
+          "linhas": 8,
+          "sha256": "0682db083c3992df556341d79c875b49325c67d1fc5e7360a92c38b7ea6787fb",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 9,
+          "colunas": [
+            "Relacao",
+            "Observacoes",
+            "Correlacao_Pearson",
+            "Magnitude",
+            "Direcao"
+          ],
+          "linhas": 6,
+          "sha256": "49f0388b016b4855ff061e0addb1d4e9d3120639d41bd16c314e8197391499b6",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:32.659175+00:00",
+      "conjuntos_resultado": 9,
+      "linhas_resultado": 107,
+      "fim_utc": "2026-09-20T18:25:33.046408+00:00",
+      "duracao_segundos": 0.3872
+    },
+    {
+      "arquivo": "sql/03_eda/04_analise_multivariada.sql",
+      "status": "success",
+      "lotes": 15,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Genero",
+            "Escolaridade",
+            "Quartil_Renda",
+            "Faixa_Etaria",
+            "Clientes",
+            "Pedidos_Medios_Cliente",
+            "Receita_Media_Cliente",
+            "Ticket_Medio_Pedido",
+            "Margem_Pct_Ponderada",
+            "Status_Amostra"
+          ],
+          "linhas": 143,
+          "sha256": "aaea253ea6e0df6c6569ed6abd10b5881a76c71289905c685b1f557141f02d8f",
+          "status_encontrados": [
+            "AMOSTRA PEQUENA"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Regiao",
+            "Estado",
+            "Quartil_Renda",
+            "Genero",
+            "Clientes",
+            "Pedidos",
+            "Receita_Media_Cliente",
+            "Ticket_Medio_Pedido",
+            "Status_Amostra"
+          ],
+          "linhas": 100,
+          "sha256": "5ecc168874e2cdd711d599f7ee3f84b993ce9867bd179d3be161b11ecd0afce3",
+          "status_encontrados": [
+            "AMOSTRA PEQUENA",
+            "AMOSTRA SUFICIENTE"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Canal_Marketing",
+            "Campanha",
+            "Evento_Externo",
+            "Pedidos",
+            "Clientes",
+            "Receita",
+            "Ticket_Medio",
+            "Desconto_Pct",
+            "Margem_Pct",
+            "Status_Amostra"
+          ],
+          "linhas": 135,
+          "sha256": "2a26a938a4b6ecc20f0387cdd1f372ad6721b873fce9a76af391382b6653c727",
+          "status_encontrados": [
+            "AMOSTRA PEQUENA",
+            "AMOSTRA SUFICIENTE"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Categoria_Item",
+            "Forma_Pagamento",
+            "Pedido_Com_Campanha",
+            "Linhas_Item",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita",
+            "Margem_Pct",
+            "Status_Amostra"
+          ],
+          "linhas": 130,
+          "sha256": "fd1dfbdde1070294827d8eac7f968c44a2a46aa20850c3fbf1e173eacf6f9bac",
+          "status_encontrados": [
+            "AMOSTRA PEQUENA",
+            "AMOSTRA SUFICIENTE"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Regiao",
+            "Transportadora",
+            "Status_Entrega_Calculado",
+            "Entregas",
+            "Atraso_Medio",
+            "Frete_Medio",
+            "Avaliacao_Media",
+            "Ticket_Medio",
+            "Status_Amostra"
+          ],
+          "linhas": 75,
+          "sha256": "4a5cd0090cb5ddbbcae0b118a9ba20019663a654c5526139f70acc79f5b7c8bf",
+          "status_encontrados": [
+            "AMOSTRA PEQUENA",
+            "AMOSTRA SUFICIENTE",
+            "Antecipada",
+            "Atrasada",
+            "No prazo"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Analise",
+            "Observacoes",
+            "Segmentos",
+            "Media_Observacoes_Segmento",
+            "Segmentos_Com_Amostra_Pequena"
+          ],
+          "linhas": 2,
+          "sha256": "ff8f0619d9f7a1a2af5d31cc0293f6e13d1f7a6255bc176d1120d79d73d042b0",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Cliente_SK",
+            "Idade",
+            "Renda_Mensal_Cliente",
+            "Total_Pedidos",
+            "Receita_Total",
+            "Ticket_Medio",
+            "Recencia_Dias",
+            "Z_Idade",
+            "Z_Renda",
+            "Z_Pedidos",
+            "Z_Receita",
+            "Z_Recencia"
+          ],
+          "linhas": 330,
+          "sha256": "5fde5ee7a36d96782f744132e525aa5877a5042dac5a60f6de916d2e89042c48",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:33.047409+00:00",
+      "conjuntos_resultado": 7,
+      "linhas_resultado": 915,
+      "fim_utc": "2026-09-20T18:25:33.690884+00:00",
+      "duracao_segundos": 0.6435
+    },
+    {
+      "arquivo": "sql/03_eda/05_create_vw_perfil_cliente_analytics.sql",
+      "status": "success",
+      "lotes": 5,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Linhas_View",
+            "Clientes_Distintos",
+            "Status_Granularidade"
+          ],
+          "linhas": 1,
+          "sha256": "bd5b18691f7a21c3f5561afe9d1adf8006ae926fbbf260203a5a3d643ab105ae",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Clientes_SK_Duplicados"
+          ],
+          "linhas": 1,
+          "sha256": "c14196f132c1e9be0508ae80ab52fcb3e1d3fc05880415f3dc980971df207c9e",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Pedidos_Na_View",
+            "Pedidos_Na_Fato",
+            "Diferenca_Valor_Total",
+            "Status_Reconciliacao"
+          ],
+          "linhas": 1,
+          "sha256": "37f3d6817018bfa1fce76347e651dfc6f1b2ce179204f11bc2a6df622f114edd",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:33.691882+00:00",
+      "conjuntos_resultado": 3,
+      "linhas_resultado": 3,
+      "fim_utc": "2026-09-20T18:25:33.917111+00:00",
+      "duracao_segundos": 0.2252
+    },
+    {
+      "arquivo": "sql/03_eda/06_validacao_preparacao_dataset_cliente.sql",
+      "status": "success",
+      "lotes": 10,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "ID_View_Perfil",
+            "ID_View_Dataset",
+            "Status_Existencia"
+          ],
+          "linhas": 1,
+          "sha256": "7a9985c0c38290d819f934cc6e7218f588c9b2a7297de97a833513716072a509",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Linhas_Dataset",
+            "Clientes_Distintos",
+            "Linhas_Excedentes",
+            "Status_Granularidade"
+          ],
+          "linhas": 1,
+          "sha256": "fc19549b3ee66004dfddab106ebbf8ef9393fa36fb7c68e6d8defae24825f2a5",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Pedidos_Dataset",
+            "Pedidos_Gold",
+            "Itens_Dataset",
+            "Itens_Gold",
+            "Diferenca_Receita",
+            "Diferenca_Margem",
+            "Status_Reconciliacao"
+          ],
+          "linhas": 1,
+          "sha256": "c81248b5172120bd529c21a1087d32b50235b15af63488ecb9f46f0984a943a2",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Clientes_Pedidos_Negativos",
+            "Clientes_Itens_Negativos",
+            "Clientes_Receita_Negativa",
+            "Clientes_Recencia_Negativa",
+            "Clientes_Margem_Incoerente",
+            "Status_Coerencia"
+          ],
+          "linhas": 1,
+          "sha256": "ca1377a5fa9ddf7c61d39a87206988d5271469566218f894e1487e9b361de9a6",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Variavel",
+            "Total_Clientes",
+            "Valores_Validos",
+            "Valores_Ausentes",
+            "Percentual_Cobertura",
+            "Classificacao_Cobertura"
+          ],
+          "linhas": 12,
+          "sha256": "3b4347a5adf89b9fe4ce3896cf91de45b6e8b1243baceab96d0f8e06a57b4180",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Elegivel_Segmentacao_Base",
+            "Classificacao",
+            "Clientes",
+            "Percentual_Clientes"
+          ],
+          "linhas": 1,
+          "sha256": "71eeda146185b5c3a3965911272a59084b44f84285f0e8038a035a581c38d722",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Clientes_Renda_Zero",
+            "Clientes_Sem_Intervalo_Calculavel",
+            "Clientes_Sem_Avaliacao",
+            "Clientes_Sem_Categoria_Observada",
+            "Observacao_Ciclo_Vida"
+          ],
+          "linhas": 1,
+          "sha256": "138f55e45204a4e80ef288df7e4d6aebfe0acf93cfc668242e92fb5a4b2172bb",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:33.917793+00:00",
+      "conjuntos_resultado": 7,
+      "linhas_resultado": 18,
+      "fim_utc": "2026-09-20T18:25:34.390077+00:00",
+      "duracao_segundos": 0.4723
+    },
+    {
+      "arquivo": "sql/03_eda/07_eda_comercial.sql",
+      "status": "success",
+      "lotes": 13,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Total_Pedidos",
+            "Clientes_Com_Compra",
+            "Unidades_Vendidas",
+            "Soma_Produtos_Distintos_Por_Pedido",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Itens_Medios_Por_Pedido",
+            "Produtos_Distintos_Medios_Por_Pedido"
+          ],
+          "linhas": 1,
+          "sha256": "a16a48a52c9f203ec8e0d8a0659fb355142c1205a97b94b42382768d06fc6c1e",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Ano_Mes",
+            "Nome_Mes",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita",
+            "Ticket_Medio",
+            "Variacao_Receita_Pct",
+            "Variacao_Pedidos_Pct"
+          ],
+          "linhas": 12,
+          "sha256": "b27fc352d49fdbd3962e3b11a4dbfff3d088f4741e1d1c8ceeaeef1127eaa680",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Ano_Mes",
+            "Nome_Mes",
+            "Clientes_Ativos",
+            "Clientes_Novos",
+            "Clientes_Recorrentes"
+          ],
+          "linhas": 12,
+          "sha256": "45db1d89f7eec38e518f9dae4a4be1334bddd6fc6f6ed7e17de7596b937b346a",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Faixa_Frequencia",
+            "Clientes",
+            "Pedidos",
+            "Receita",
+            "Receita_Media_Cliente",
+            "Ticket_Medio_Pedido"
+          ],
+          "linhas": 5,
+          "sha256": "5416971dec3e1d623d889133b95f7554d0a236cd314ec18db8387e3fc16470eb",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Posicao",
+            "Cliente_SK",
+            "Cliente_ID",
+            "Total_Pedidos_Calculado",
+            "Valor_Total_Gasto",
+            "Participacao_Individual_Pct",
+            "Receita_Acumulada_Pct"
+          ],
+          "linhas": 330,
+          "sha256": "ebf1a7a0c6f20ff37ea499609d55706ff0bc975389925a0b93778f3e2b62a8cb",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Categoria_Item",
+            "Produtos_Vendidos",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita",
+            "Receita_Media_Unidade",
+            "Penetracao_Clientes_Pct"
+          ],
+          "linhas": 13,
+          "sha256": "3d7ce0d28ddcf267cc62af6e3125fa4283cc740e07ddf1d08b03d00a099f7901",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Produto_SK",
+            "Produto",
+            "Categoria_Item",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita",
+            "Receita_Media_Unidade"
+          ],
+          "linhas": 20,
+          "sha256": "4f1d924310cf4582fc971ddf0551bc2c6dd760b4921d1bdd67341935fb8fdada",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 8,
+          "colunas": [
+            "Faixa_Cesta",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita",
+            "Ticket_Medio"
+          ],
+          "linhas": 5,
+          "sha256": "308d32f098d7416daf64fc109c8d2aac4f50e3e1a564f2fd05c75eb0b03084c9",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 9,
+          "colunas": [
+            "Numero_Dia_Semana",
+            "Nome_Dia_Semana",
+            "Faixa_Horaria",
+            "Pedidos",
+            "Clientes",
+            "Receita",
+            "Ticket_Medio"
+          ],
+          "linhas": 21,
+          "sha256": "6c773821153c2f3ee2e4c6f13550830bb3a38d78931d4b0dca33bef64b6c0c21",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 10,
+          "colunas": [
+            "Categoria_A",
+            "Categoria_B",
+            "Pedidos_Conjuntos",
+            "Clientes"
+          ],
+          "linhas": 20,
+          "sha256": "1d2bebe12d795e386543a0dd51362da1ef2fcd703cc27586e1ff38644cc95d6e",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 11,
+          "colunas": [
+            "Pedidos_Gold",
+            "Pedidos_View",
+            "Diferenca_Receita",
+            "Status_Reconciliacao"
+          ],
+          "linhas": 1,
+          "sha256": "37f3d6817018bfa1fce76347e651dfc6f1b2ce179204f11bc2a6df622f114edd",
+          "status_encontrados": [
+            "APROVADO"
+          ],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:34.390729+00:00",
+      "conjuntos_resultado": 11,
+      "linhas_resultado": 440,
+      "fim_utc": "2026-09-20T18:25:35.364881+00:00",
+      "duracao_segundos": 0.9742
+    },
+    {
+      "arquivo": "sql/03_eda/08_eda_financeira.sql",
+      "status": "success",
+      "lotes": 20,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Pedidos",
+            "Clientes_Com_Compra",
+            "Receita_Bruta",
+            "Descontos_Concedidos",
+            "Receita_Liquida",
+            "Custo_Dos_Produtos",
+            "Margem_Bruta",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada",
+            "Ticket_Medio",
+            "Custo_Medio_Pedido",
+            "Margem_Media_Pedido"
+          ],
+          "linhas": 1,
+          "sha256": "141fd1f7e25a04cbd705d5a6b085e3a6a153d84b8866ff994f13a5e57b9d6565",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Mes_Referencia",
+            "Pedidos",
+            "Clientes",
+            "Receita_Bruta",
+            "Descontos",
+            "Receita_Liquida",
+            "Custo_Dos_Produtos",
+            "Margem_Bruta",
+            "Ticket_Medio",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada",
+            "Variacao_Receita_Mes_Anterior_Pct"
+          ],
+          "linhas": 12,
+          "sha256": "036beffada091d332d6d85cbee321ab0e436988f88730607faac68ec47495774",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Forma_Pagamento",
+            "Pedidos",
+            "Clientes",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Descontos",
+            "Desconto_Pct_Ponderado",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 5,
+          "sha256": "bd7dd9ff917ca40f365b82c6fe26425c41cd2aee5574e7054788c7e23b800a45",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Faixa_Desconto",
+            "Pedidos",
+            "Clientes",
+            "Ticket_Medio",
+            "Receita_Liquida",
+            "Descontos",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 5,
+          "sha256": "fde724542ad4409617606cb0961189c100b1889dd45864d4009e2854dc18f4f3",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Categoria_Item",
+            "Produtos_Vendidos",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita_Bruta",
+            "Descontos",
+            "Receita_Liquida",
+            "Custo_Dos_Produtos",
+            "Margem_Bruta",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 13,
+          "sha256": "ac276c87ceb79b4c5ca5d62f9093af09b4e2a11cb49f1690319922c0bc4b2e9e",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Produto_SK",
+            "Produto",
+            "Categoria_Item",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita_Liquida",
+            "Custo_Dos_Produtos",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada",
+            "Desconto_Pct_Ponderado"
+          ],
+          "linhas": 36,
+          "sha256": "799e4d677e7850233449a14d08c636cd904a9e6640edbc12946fa8d46747610b",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Faixa_Margem",
+            "Pedidos",
+            "Pedidos_Pct",
+            "Receita_Liquida",
+            "Margem_Bruta",
+            "Desconto_Medio_Simples_Pct"
+          ],
+          "linhas": 1,
+          "sha256": "234a0a7f1d0a5da7bb0ed0e6f3f70847fb7b012a58db76bb2b56e95c68896e46",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 8,
+          "colunas": [
+            "Pedido_ID",
+            "Cliente_SK",
+            "Data_Hora_Compra",
+            "Quantidade_Total_Itens",
+            "Receita_Bruta",
+            "Desconto",
+            "Receita_Liquida",
+            "Custo_Dos_Produtos",
+            "Margem_Bruta",
+            "Margem_Pct",
+            "Desconto_Pct",
+            "Pedido_Com_Campanha",
+            "Cupom_Status"
+          ],
+          "linhas": 30,
+          "sha256": "fd0148412bc8c13c23cd6f9ec69fd339adbc1194edd69abbf2998b663340f865",
+          "status_encontrados": [
+            "Não",
+            "Sim"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 9,
+          "colunas": [
+            "Cliente_SK",
+            "Cliente_ID",
+            "Genero",
+            "Idade",
+            "Pedidos",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Descontos",
+            "Custo_Dos_Produtos",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 330,
+          "sha256": "0acee3c84abe9148f40f7a3176262ea3ff4e5c4460a4f5efc4b8c6bc24141c35",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 10,
+          "colunas": [
+            "Faixa_Clientes",
+            "Clientes",
+            "Receita_Liquida",
+            "Participacao_Na_Receita_Pct"
+          ],
+          "linhas": 3,
+          "sha256": "cf8b1574b5271e04e5774077219fab4e98c8dfc900e082ee9511f2554511a405",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 11,
+          "colunas": [
+            "Faixa_Receita",
+            "Entregas",
+            "Ticket_Medio",
+            "Frete_Medio_Registrado",
+            "Entregas_Com_Frete_Gratis_Pct",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 4,
+          "sha256": "a924757503aee65bf23381fcbe35f0ddfbe8d6bdfffcd6b6e2a2500032617974",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 12,
+          "colunas": [
+            "Bruta_Pedidos",
+            "Bruta_Itens",
+            "Diferenca_Bruta",
+            "Desconto_Pedidos",
+            "Desconto_Itens",
+            "Diferenca_Desconto",
+            "Liquida_Pedidos",
+            "Liquida_Itens",
+            "Diferenca_Liquida",
+            "Custo_Pedidos",
+            "Custo_Itens",
+            "Diferenca_Custo",
+            "Margem_Pedidos",
+            "Margem_Itens",
+            "Diferenca_Margem"
+          ],
+          "linhas": 1,
+          "sha256": "7af78d64d688d4612f250bf55afb6699e98af42d00bdb8fd6eaa78e1b71bbddf",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:35.365883+00:00",
+      "conjuntos_resultado": 12,
+      "linhas_resultado": 441,
+      "fim_utc": "2026-09-20T18:25:35.842130+00:00",
+      "duracao_segundos": 0.4762
+    },
+    {
+      "arquivo": "sql/03_eda/09_eda_marketing.sql",
+      "status": "success",
+      "lotes": 19,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Associacao_Campanha",
+            "Pedidos",
+            "Clientes",
+            "Itens_Medios_Pedido",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Descontos",
+            "Desconto_Pct_Ponderado",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 2,
+          "sha256": "18c285df54bed98d212d23a3c1317dd0486cce28c94d2cf5a3be04e72c558c7a",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Canal_Marketing",
+            "Pedidos",
+            "Clientes",
+            "Participacao_Pedidos_Pct",
+            "Receita_Liquida",
+            "Participacao_Receita_Pct",
+            "Ticket_Medio",
+            "Itens_Medios_Pedido",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada",
+            "Status_Amostra"
+          ],
+          "linhas": 9,
+          "sha256": "a9bfb0e2e1b9e6acdf939f4b743683705f76da2a4ad1e8c583498e7884dccbc6",
+          "status_encontrados": [
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Campanha",
+            "Pedidos",
+            "Clientes",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Itens_Medios_Pedido",
+            "Descontos",
+            "Desconto_Pct_Ponderado",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada",
+            "Status_Amostra"
+          ],
+          "linhas": 6,
+          "sha256": "ac24357a5316fea7233902f038dcced4b5972b6632c2b9c2ba4b825764e52b7b",
+          "status_encontrados": [
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Evento_Externo",
+            "Pedidos",
+            "Clientes",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Itens_Medios_Pedido",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada",
+            "Status_Amostra"
+          ],
+          "linhas": 4,
+          "sha256": "1893e42e4fc2aa9d077f707fe09631f7bdc71f6fd96d28c5ec5b2c269b4fac99",
+          "status_encontrados": [
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Cupom_Status",
+            "Pedidos",
+            "Clientes",
+            "Itens_Medios_Pedido",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Descontos",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 3,
+          "sha256": "ebe4a812a81e49ee4d53e98f7766870cc1f2799943f27e74c5f2eeb99bc9c9d6",
+          "status_encontrados": [
+            "Não",
+            "Não informado",
+            "Sim"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Canal_Marketing",
+            "Campanha",
+            "Pedidos",
+            "Clientes",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada",
+            "Status_Amostra"
+          ],
+          "linhas": 54,
+          "sha256": "b6e60ef1a3cc4baa09a38eabc5f2c4658ccc362ae6175489684e60ce372262c7",
+          "status_encontrados": [
+            "Amostra pequena",
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Campanha",
+            "Evento_Externo",
+            "Pedidos",
+            "Clientes",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Desconto_Pct_Ponderado",
+            "Margem_Pct_Ponderada",
+            "Status_Amostra"
+          ],
+          "linhas": 16,
+          "sha256": "cdd41c1617620928694d094fd8c3117d69b21414b8bd276ba14064a777860e57",
+          "status_encontrados": [
+            "Amostra pequena",
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 8,
+          "colunas": [
+            "Mes_Referencia",
+            "Canal_Marketing",
+            "Pedidos",
+            "Clientes",
+            "Receita_Liquida",
+            "Ticket_Medio",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 107,
+          "sha256": "bddcc3fc9be8f5cf554d999638a512055b54ca00a044f002cde49f67ef4fd522",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 9,
+          "colunas": [
+            "Categoria_Item",
+            "Associacao_Campanha",
+            "Linhas_Item",
+            "Pedidos",
+            "Clientes",
+            "Unidades",
+            "Receita_Liquida",
+            "Descontos",
+            "Margem_Bruta",
+            "Margem_Pct_Ponderada"
+          ],
+          "linhas": 26,
+          "sha256": "9d15a43625674dbaae7819907dac643bbac339342f95852d1a5e707167c2c2e5",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 10,
+          "colunas": [
+            "Canal_Marketing",
+            "Clientes_Alcancados_Com_Compra",
+            "Clientes_Com_Multiplos_Pedidos",
+            "Clientes_Com_Multiplos_Pedidos_Pct",
+            "Pedidos_Medios_Por_Cliente",
+            "Receita_Media_Por_Cliente"
+          ],
+          "linhas": 9,
+          "sha256": "80bfd846d98104309ade1d71e797466e6478503129b61daeea2b618e274008ec",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 11,
+          "colunas": [
+            "Canal_Marketing",
+            "Pedidos_Totais",
+            "Pedidos_Com_Campanha",
+            "Pedidos_Com_Campanha_Pct",
+            "Receita_Total",
+            "Receita_Associada_Campanha",
+            "Receita_Associada_Campanha_Pct"
+          ],
+          "linhas": 9,
+          "sha256": "1ab1f2255cb1df357adbdf6817a7eca0b009f68f467213739381c61cdef813bf",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 12,
+          "colunas": [
+            "Canal_Marketing",
+            "Pedidos_Sem_Campanha",
+            "Pedidos_Com_Campanha",
+            "Ticket_Sem_Campanha",
+            "Ticket_Com_Campanha",
+            "Diferenca_Descritiva_Ticket_Pct",
+            "Itens_Sem_Campanha",
+            "Itens_Com_Campanha",
+            "Margem_Sem_Campanha_Pct",
+            "Margem_Com_Campanha_Pct",
+            "Status_Comparacao"
+          ],
+          "linhas": 9,
+          "sha256": "f4dfb69dd9c884914b7951b78f95d505ef0574342b63d8219e3ef24a690e616a",
+          "status_encontrados": [
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 13,
+          "colunas": [
+            "Atributo",
+            "Pedidos",
+            "Pedidos_Sem_Informacao",
+            "Ausencia_Pct",
+            "Categorias_Distintas"
+          ],
+          "linhas": 4,
+          "sha256": "b12512fcd52c8f16c80fba1d34af55497389056138f81f6b4b80ebac44174ffc",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:35.843131+00:00",
+      "conjuntos_resultado": 13,
+      "linhas_resultado": 258,
+      "fim_utc": "2026-09-20T18:25:36.309653+00:00",
+      "duracao_segundos": 0.4665
+    },
+    {
+      "arquivo": "sql/03_eda/10_eda_logistica.sql",
+      "status": "success",
+      "lotes": 20,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Pedidos",
+            "Entregas",
+            "Pedidos_Sem_Entrega",
+            "Pedidos_Com_Mais_De_Uma_Entrega"
+          ],
+          "linhas": 1,
+          "sha256": "4a5c4a7af14da983e02a4de5c809db7ebdb20a1f01be0326506dafde92a6c0e3",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 2,
+          "colunas": [
+            "Entregas",
+            "Clientes_Atendidos",
+            "Prazo_Prometido_Medio_Dias",
+            "Prazo_Real_Medio_Dias",
+            "Diferenca_Media_Prazo_Dias",
+            "Entregas_Atrasadas",
+            "Taxa_Atraso_Pct",
+            "Entregas_No_Prazo",
+            "Nivel_Servico_No_Prazo_Pct",
+            "Atraso_Medio_Entre_Atrasadas",
+            "Avaliacao_Media",
+            "Frete_Medio_Registrado",
+            "Frete_Gratis_Pct"
+          ],
+          "linhas": 1,
+          "sha256": "98febeaecbfef7ab42bd4ac05cc065b6113f167b0a222da4eb3a80f9d46dd59e",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 3,
+          "colunas": [
+            "Status_Entrega",
+            "Entregas",
+            "Participacao_Entregas_Pct",
+            "Prazo_Real_Medio_Dias",
+            "Dias_Atraso_Medio",
+            "Dias_Antecipacao_Medio",
+            "Frete_Medio_Registrado",
+            "Avaliacao_Media",
+            "Ticket_Medio"
+          ],
+          "linhas": 3,
+          "sha256": "b1a72fa781da08528b07a84d709e5fc8ed518dcf68d0f9575ea6ee3a6019e377",
+          "status_encontrados": [
+            "Antecipada",
+            "Atrasada",
+            "No prazo"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 4,
+          "colunas": [
+            "Transportadora",
+            "Entregas",
+            "Clientes_Atendidos",
+            "Prazo_Real_Medio_Dias",
+            "Taxa_Atraso_Pct",
+            "Atraso_Medio_Entre_Atrasadas",
+            "Antecipacao_Media_Dias",
+            "Frete_Medio_Registrado",
+            "Frete_Gratis_Pct",
+            "Avaliacao_Media",
+            "Status_Amostra"
+          ],
+          "linhas": 5,
+          "sha256": "4488f8bbd7df0cab1f1b9c852fd0393998bee326a8555bafcc0efe8ea179f7b9",
+          "status_encontrados": [
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 5,
+          "colunas": [
+            "Regiao",
+            "Entregas",
+            "Clientes_Atendidos",
+            "Prazo_Real_Medio_Dias",
+            "Taxa_Atraso_Pct",
+            "Atraso_Medio_Entre_Atrasadas",
+            "Frete_Medio_Registrado",
+            "Avaliacao_Media",
+            "Ticket_Medio"
+          ],
+          "linhas": 5,
+          "sha256": "be9f4409d944cde33a21d14212309d31749ad6cca6271454b83b762f7d986e38",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 6,
+          "colunas": [
+            "Regiao",
+            "Estado",
+            "Cidade",
+            "Entregas",
+            "Clientes_Atendidos",
+            "Prazo_Real_Medio_Dias",
+            "Taxa_Atraso_Pct",
+            "Frete_Medio_Registrado",
+            "Avaliacao_Media",
+            "Status_Amostra"
+          ],
+          "linhas": 15,
+          "sha256": "308bb654690b1afc92143ca074db18cabd065ebb697e8eaacda8fb93016cca82",
+          "status_encontrados": [
+            "Amostra pequena",
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 7,
+          "colunas": [
+            "Regiao",
+            "Transportadora",
+            "Entregas",
+            "Prazo_Real_Medio_Dias",
+            "Taxa_Atraso_Pct",
+            "Atraso_Medio_Entre_Atrasadas",
+            "Frete_Medio_Registrado",
+            "Avaliacao_Media",
+            "Status_Amostra"
+          ],
+          "linhas": 25,
+          "sha256": "1f515ecb86aed027373611f822e856599b8e6ddddfa37d841bd12503a7db1a30",
+          "status_encontrados": [
+            "Amostra pequena",
+            "Amostra suficiente para descrição"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 8,
+          "colunas": [
+            "Mes_Referencia",
+            "Entregas",
+            "Prazo_Real_Medio_Dias",
+            "Taxa_Atraso_Pct",
+            "Atraso_Medio_Entre_Atrasadas",
+            "Frete_Medio_Registrado",
+            "Avaliacao_Media"
+          ],
+          "linhas": 12,
+          "sha256": "2c5f5199c16cc61ed9aa0a1a95886104752f469f71c8a4ccbbcd7fd63bd5cfc5",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 9,
+          "colunas": [
+            "Faixa_Atraso",
+            "Entregas",
+            "Participacao_Entregas_Pct",
+            "Avaliacao_Media",
+            "Frete_Medio_Registrado",
+            "Ticket_Medio"
+          ],
+          "linhas": 4,
+          "sha256": "5b7831fb6b12d7a7e48a1a683c5b500e2baf52f161da1e10ce7efa296349544a",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 10,
+          "colunas": [
+            "Condicao_Prazo",
+            "Entregas",
+            "Avaliacoes_Validas",
+            "Avaliacao_Media",
+            "Menor_Avaliacao",
+            "Maior_Avaliacao",
+            "Ticket_Medio",
+            "Itens_Medios_Pedido"
+          ],
+          "linhas": 2,
+          "sha256": "671108a8cfdfefde48b76de80b416fe5f1acdb87a3f015ec790fafc0cfb189b2",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 11,
+          "colunas": [
+            "Condicao_Frete",
+            "Entregas",
+            "Frete_Medio_Registrado",
+            "Ticket_Medio",
+            "Itens_Medios_Pedido",
+            "Taxa_Atraso_Pct",
+            "Avaliacao_Media",
+            "Margem_Bruta_Pct_Ponderada"
+          ],
+          "linhas": 2,
+          "sha256": "6e3102958cd9f4cbd6d359e17e44f75da2d4f93711a51b09994ef01812bb31fa",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 12,
+          "colunas": [
+            "Faixa_Receita",
+            "Entregas",
+            "Ticket_Medio",
+            "Prazo_Real_Medio_Dias",
+            "Taxa_Atraso_Pct",
+            "Frete_Medio_Registrado",
+            "Frete_Gratis_Pct",
+            "Avaliacao_Media"
+          ],
+          "linhas": 4,
+          "sha256": "bcde3248e8e215e15233066ad336788e38f06284d6c54c466a561c2c1d898dcb",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 13,
+          "colunas": [
+            "Pedido_ID",
+            "Cliente_SK",
+            "Data_Hora_Compra",
+            "Transportadora",
+            "Cidade",
+            "Estado",
+            "Regiao",
+            "Prazo_Prometido_Dias",
+            "Prazo_Real_Dias",
+            "Dias_Atraso",
+            "Status_Entrega_Calculado",
+            "Frete_Registrado",
+            "Frete_Gratis",
+            "Avaliacao_Cliente",
+            "Receita_Liquida"
+          ],
+          "linhas": 30,
+          "sha256": "2bc3d2a9e572871aedd9bd3541d8cb51074e94dd13ab2abc5d35082357d97fcb",
+          "status_encontrados": [
+            "Atrasada"
+          ],
+          "gate_validacao_aplicado": true
+        },
+        {
+          "numero": 14,
+          "colunas": [
+            "Variavel",
+            "Entregas",
+            "Valores_Nulos",
+            "Nulos_Pct"
+          ],
+          "linhas": 6,
+          "sha256": "84840bb68816af72ea86222f7b93980c65858eecb8d6d7e6bd8e2102df7100b6",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:36.310652+00:00",
+      "conjuntos_resultado": 14,
+      "linhas_resultado": 115,
+      "fim_utc": "2026-09-20T18:25:36.690933+00:00",
+      "duracao_segundos": 0.3803
+    },
+    {
+      "arquivo": "sql/03_eda/11_Intervalo_médio_de_compras_calculável.sql",
+      "status": "success",
+      "lotes": 2,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Clientes_Sem_Intervalo_Calculavel",
+            "Percentual_Dos_Clientes"
+          ],
+          "linhas": 1,
+          "sha256": "7c297737b635e6ba8cece812bccc278b3f77bd3c7c917ce489d4c8144ab4ef25",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:36.690933+00:00",
+      "conjuntos_resultado": 1,
+      "linhas_resultado": 1,
+      "fim_utc": "2026-09-20T18:25:36.838987+00:00",
+      "duracao_segundos": 0.1481
+    },
+    {
+      "arquivo": "sql/03_eda/12_Avaliação_média_ou_categoria_favorita_observada.sql",
+      "status": "success",
+      "lotes": 2,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Total_Clientes",
+            "Clientes_Sem_Avaliacao_Media",
+            "Clientes_Sem_Categoria_Favorita",
+            "Clientes_Sem_Uma_Ou_Mais_Informacoes",
+            "Clientes_Sem_Ambas_Informacoes",
+            "Percentual_Sem_Uma_Ou_Mais"
+          ],
+          "linhas": 1,
+          "sha256": "6e11e1ca91e39dc4e80e29a24a3149ddb52dc2054a2316ab15501fbb87870ce4",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:36.840739+00:00",
+      "conjuntos_resultado": 1,
+      "linhas_resultado": 1,
+      "fim_utc": "2026-09-20T18:25:36.908366+00:00",
+      "duracao_segundos": 0.0676
+    },
+    {
+      "arquivo": "sql/03_eda/13_atributos_marketing_logística_ausencia.sql",
+      "status": "success",
+      "lotes": 2,
+      "resultados": [
+        {
+          "numero": 1,
+          "colunas": [
+            "Area",
+            "Atributo",
+            "Total_Registros",
+            "Valores_Ausentes",
+            "Ausencia_Pct"
+          ],
+          "linhas": 10,
+          "sha256": "9db8dc5e582c566d67b53c8ba3907657e4a6d021bd55e615e67e0797feda6dc9",
+          "status_encontrados": [],
+          "gate_validacao_aplicado": true
+        }
+      ],
+      "inicio_utc": "2026-09-20T18:25:36.909366+00:00",
+      "conjuntos_resultado": 1,
+      "linhas_resultado": 10,
+      "fim_utc": "2026-09-20T18:25:36.953664+00:00",
+      "duracao_segundos": 0.0443
+    }
+  ],
+  "quantidade_scripts": 16,
+  "fim_utc": "2026-09-20T18:25:36.953664+00:00",
+  "duracao_segundos": 58.9808
+}

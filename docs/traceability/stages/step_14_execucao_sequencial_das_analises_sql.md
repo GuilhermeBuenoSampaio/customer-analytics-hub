@@ -7,9 +7,9 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Ex
 ## Implementação
 
 - Script: `src/sql/execution/run_sql_pipeline.py`
-- SHA-256 do script: `ffec9c81fc27a13e61e4835d5bdeff54eece24209c99c5d1daf81cadbf5ecdae`
-- Run ID: `retroativo_inicial_001`
-- Registro UTC: `2026-09-20T15:45:21.388287+00:00`
+- SHA-256 do script: `e21911025bbd4a036682de95a4149431a3eee529f59004686a478bf0f2ead211`
+- Run ID: `etapa14_sql_aprovada_001`
+- Registro UTC: `2026-09-20T18:44:49.306993+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito
@@ -22,7 +22,7 @@ Reproduzir a EDA e análises futuras na mesma ordem, com log de falhas.
 
 ## Evidências
 
-- Nenhuma evidência material localizada; etapa mantida pendente.
+- `outputs/logs/sql_pipeline/sql_pipeline_20260920T182437_972857Z.json` — SHA-256 `7fd331d9fb6b1bbcaa0b24228b09bb28f226391071ef86ec9850648432f605d0`
 
 ## Validação e critério de aceite
 

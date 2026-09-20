@@ -17,7 +17,7 @@ Documento atualizado automaticamente a partir da rastreabilidade validada.
 | 11 | Especificação do modelo dimensional Gold | approved | 2 |
 | 12 | Materialização do modelo dimensional Gold | approved | 16 |
 | 13 | Carga Gold no SQL Server | approved | 1 |
-| 14 | Execução sequencial das análises SQL | pending_evidence | 0 |
+| 14 | Execução sequencial das análises SQL | approved | 1 |
 
 ## Regra de governança
 
