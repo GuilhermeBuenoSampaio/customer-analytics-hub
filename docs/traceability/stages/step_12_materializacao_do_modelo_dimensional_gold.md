@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Ma
 
 - Script: `src/gold/transformation/step_12_materializacao_modelo_dimensional_gold.py`
 - SHA-256 do script: `09847b6a812d0e863dd991357bda9d3cddcdbe13857335fdaedb2b99b48a2d8c`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.937157+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:21.121801+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

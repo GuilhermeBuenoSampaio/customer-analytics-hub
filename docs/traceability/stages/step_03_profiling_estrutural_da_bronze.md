@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Pr
 
 - Script: `src/bronze/profiling/step_03_profiling_estrutural.py`
 - SHA-256 do script: `013e3e955f9447c458ac112c21391f7e244fd9ae13bdf3f8d0f22e3c086fe8dc`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.927560+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.570537+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

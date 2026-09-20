@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Pl
 
 - Script: `src/bronze/profiling/step_08_plano_tratamento_normalizacao_silver.py`
 - SHA-256 do script: `2382041d64a0e1fc3833b816138b021c797d5b6fc995dfa8dbbaf76bd339a92c`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.932594+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.863713+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

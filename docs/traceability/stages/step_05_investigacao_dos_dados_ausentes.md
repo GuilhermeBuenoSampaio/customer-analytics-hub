@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **In
 
 - Script: `src/bronze/profiling/step_05_investigacao_dados_ausentes.py`
 - SHA-256 do script: `f9fcf0718b711533be3236043ad2694c620c47e7340bf857c39d5b42b98957f7`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.929713+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.680686+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

@@ -5,128 +5,128 @@
       "name": "Validação do contrato da fonte",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_01_validacao_do_contrato_da_fonte.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.924106+00:00"
+      "updated_utc": "2026-09-20T15:45:20.438283+00:00"
     },
     "2": {
       "name": "Materialização da Bronze",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_02_materializacao_da_bronze.md",
       "evidence_count": 2,
-      "updated_utc": "2026-09-20T01:18:12.925644+00:00"
+      "updated_utc": "2026-09-20T15:45:20.500782+00:00"
     },
     "3": {
       "name": "Profiling estrutural da Bronze",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_03_profiling_estrutural_da_bronze.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.927560+00:00"
+      "updated_utc": "2026-09-20T15:45:20.570537+00:00"
     },
     "4": {
       "name": "Análise de granularidade e chaves",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_04_analise_de_granularidade_e_chaves.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.928658+00:00"
+      "updated_utc": "2026-09-20T15:45:20.623368+00:00"
     },
     "5": {
       "name": "Investigação dos dados ausentes",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_05_investigacao_dos_dados_ausentes.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.929713+00:00"
+      "updated_utc": "2026-09-20T15:45:20.680686+00:00"
     },
     "6": {
       "name": "Validação de tipos, domínios e regras",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_06_validacao_de_tipos_dominios_e_regras.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.930534+00:00"
+      "updated_utc": "2026-09-20T15:45:20.727249+00:00"
     },
     "7": {
       "name": "Investigação contextual das inconsistências",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_07_investigacao_contextual_das_inconsistencias.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.931818+00:00"
+      "updated_utc": "2026-09-20T15:45:20.809467+00:00"
     },
     "8": {
       "name": "Plano de tratamento e normalização",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_08_plano_de_tratamento_e_normalizacao.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.932594+00:00"
+      "updated_utc": "2026-09-20T15:45:20.863713+00:00"
     },
     "9": {
       "name": "Materialização e reconciliação da Silver",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_09_materializacao_e_reconciliacao_da_silver.md",
       "evidence_count": 3,
-      "updated_utc": "2026-09-20T01:18:12.933776+00:00"
+      "updated_utc": "2026-09-20T15:45:20.910905+00:00"
     },
     "10": {
       "name": "Validação integral da qualidade da Silver",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_10_validacao_integral_da_qualidade_da_silver.md",
       "evidence_count": 1,
-      "updated_utc": "2026-09-20T01:18:12.935172+00:00"
+      "updated_utc": "2026-09-20T15:45:20.994086+00:00"
     },
     "11": {
       "name": "Especificação do modelo dimensional Gold",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_11_especificacao_do_modelo_dimensional_gold.md",
       "evidence_count": 2,
-      "updated_utc": "2026-09-20T01:18:12.936062+00:00"
+      "updated_utc": "2026-09-20T15:45:21.052496+00:00"
     },
     "12": {
       "name": "Materialização do modelo dimensional Gold",
       "status": "approved",
       "technical_status": "success",
-      "run_id": "retroactive",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_12_materializacao_do_modelo_dimensional_gold.md",
       "evidence_count": 16,
-      "updated_utc": "2026-09-20T01:18:12.937157+00:00"
+      "updated_utc": "2026-09-20T15:45:21.121801+00:00"
     },
     "13": {
       "name": "Carga Gold no SQL Server",
-      "status": "pending_evidence",
-      "technical_status": "unverified",
-      "run_id": "retroactive",
+      "status": "approved",
+      "technical_status": "success",
+      "run_id": "retroativo_etapa_13_001",
       "document": "docs/traceability/stages/step_13_carga_gold_no_sql_server.md",
-      "evidence_count": 0,
-      "updated_utc": "2026-09-20T01:18:12.939708+00:00"
+      "evidence_count": 1,
+      "updated_utc": "2026-09-20T16:17:25.479128+00:00"
     },
     "14": {
       "name": "Execução sequencial das análises SQL",
       "status": "pending_evidence",
-      "technical_status": "unverified",
-      "run_id": "retroactive",
+      "technical_status": "success",
+      "run_id": "retroativo_inicial_001",
       "document": "docs/traceability/stages/step_14_execucao_sequencial_das_analises_sql.md",
       "evidence_count": 0,
-      "updated_utc": "2026-09-20T01:18:12.940393+00:00"
+      "updated_utc": "2026-09-20T15:45:21.388287+00:00"
     }
   },
-  "updated_utc": "2026-09-20T01:18:12.940393+00:00"
+  "updated_utc": "2026-09-20T16:17:25.479128+00:00"
 }

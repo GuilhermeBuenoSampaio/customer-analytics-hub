@@ -1,0 +1,116 @@
+{
+  "evidence_type": "retroactive_read_only_validation",
+  "stage": 13,
+  "status": "success",
+  "source": {
+    "execution_table": "audit.execucao_carga_gold",
+    "reconciliation_table": "quality.reconciliacao_carga_gold"
+  },
+  "execution_id": "4BDC2FC2-B252-4D67-A53B-96D8BA87F46C",
+  "started_utc": "2026-09-13T22:36:02.849135",
+  "finished_utc": "2026-09-13T22:36:08.103671",
+  "tables": 14,
+  "rows": 17092,
+  "reconciliation": [
+    {
+      "table": "dim_campanha",
+      "parquet_rows": 6,
+      "sql_rows": 6,
+      "parquet_sha256": "41be9d8fec7813b515e4b719231aa50ecbebc38b9a6a2ed661b1d9362f258aa1",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_canal_marketing",
+      "parquet_rows": 9,
+      "sql_rows": 9,
+      "parquet_sha256": "2e22b3d70b5fdf5a9ffc1eb9045e027f7e0ad88a76e98eafeed1a3cf4a129511",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_cliente",
+      "parquet_rows": 330,
+      "sql_rows": 330,
+      "parquet_sha256": "f1cec5ad96430b2cff331033adfc91b20a97b9a06a5aae7980424866d0da8965",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_data",
+      "parquet_rows": 365,
+      "sql_rows": 365,
+      "parquet_sha256": "cff016630495f5ee64a5d396b5c60452b5c91b48970b8825b8c6f6a796ce2696",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_evento_externo",
+      "parquet_rows": 4,
+      "sql_rows": 4,
+      "parquet_sha256": "8ce4dc66fe9ee9a07e054425e8bd992260c852c429b31376f72e2b4b19a922b8",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_geografia",
+      "parquet_rows": 15,
+      "sql_rows": 15,
+      "parquet_sha256": "851dfe168b311709245832a08595fdd6ab824193604042a6c0ce722f49382158",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_horario",
+      "parquet_rows": 1440,
+      "sql_rows": 1440,
+      "parquet_sha256": "2166429a384a056c56e1d755800c4a695503f0997e09e851e81b1afb685ecebc",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_pagamento",
+      "parquet_rows": 5,
+      "sql_rows": 5,
+      "parquet_sha256": "dcff8bb481bb26b16134546ac779542b35b09d0b966a3ddf6ef0686a2dc84111",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_produto",
+      "parquet_rows": 36,
+      "sql_rows": 36,
+      "parquet_sha256": "91bfaa0bc233a93dea74ff29ce6bf85a9c042baa08d35521dce3b1624c70933d",
+      "status": "APROVADO"
+    },
+    {
+      "table": "dim_transportadora",
+      "parquet_rows": 5,
+      "sql_rows": 5,
+      "parquet_sha256": "ca9e53cb84794d0b8051e5646dfb068aa00a67f7c3a01296179f20c0d266c344",
+      "status": "APROVADO"
+    },
+    {
+      "table": "fato_cliente_mes",
+      "parquet_rows": 2804,
+      "sql_rows": 2804,
+      "parquet_sha256": "33baa9fa3ff7bfb2b63feda31c17da96aad444f7641c158c2fa0883e4a01ab4b",
+      "status": "APROVADO"
+    },
+    {
+      "table": "fato_entrega",
+      "parquet_rows": 2789,
+      "sql_rows": 2789,
+      "parquet_sha256": "5d21a0564d23d7ac3af74741acf0a48a63df9b9252d27260641300f0f9d93bff",
+      "status": "APROVADO"
+    },
+    {
+      "table": "fato_item_pedido",
+      "parquet_rows": 6495,
+      "sql_rows": 6495,
+      "parquet_sha256": "636cd7c7f5d9ba9adb2578b8c6fa38c8dfe21272ac0d55818161545059bf0b4d",
+      "status": "APROVADO"
+    },
+    {
+      "table": "fato_pedido",
+      "parquet_rows": 2789,
+      "sql_rows": 2789,
+      "parquet_sha256": "88f7c45e2370c787098d9627104b14c2ec4c34e7ffabec5e8d0093d045046d4f",
+      "status": "APROVADO"
+    }
+  ],
+  "generated_utc": "2026-09-20T16:16:33.732980+00:00",
+  "read_only": true
+}

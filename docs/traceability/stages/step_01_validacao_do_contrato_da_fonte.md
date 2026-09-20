@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Va
 
 - Script: `src/ingestion/step_01_validacao_contrato_fonte.py`
 - SHA-256 do script: `10e7385315d5eced926179aa93a804fff7fdc7e0d3d4313ce33ca0d2e3535035`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.924106+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.438283+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

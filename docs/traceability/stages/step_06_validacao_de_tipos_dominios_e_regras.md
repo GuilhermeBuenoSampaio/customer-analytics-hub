@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Va
 
 - Script: `src/bronze/profiling/step_06_validacao_tipos_dominios_regras.py`
 - SHA-256 do script: `96c889eaf426430a2d19541652c84d8bd757b6b53bff15268f7f6703a01d5603`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.930534+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.727249+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

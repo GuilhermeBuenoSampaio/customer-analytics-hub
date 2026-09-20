@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Es
 
 - Script: `src/gold/modeling/step_11_especificacao_modelo_dimensional.py`
 - SHA-256 do script: `a2eeb4d222e5fbb5e724c6634feb8ea07482b716c34777e474975bce18a41f28`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.936062+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:21.052496+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **An
 
 - Script: `src/bronze/profiling/step_04_analise_granularidade_chaves.py`
 - SHA-256 do script: `65ef1fea0b1a0e0947c1b48c1fb142111ea3eb0d95826fd3b96d774ac563b02e`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.928658+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.623368+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

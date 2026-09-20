@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Va
 
 - Script: `src/silver/quality/step_10_validacao_qualidade_silver.py`
 - SHA-256 do script: `87a102fa251e604bcd0e5abd01ec9cb13607cc62e45c7085064a6a178452733c`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.935172+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.994086+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

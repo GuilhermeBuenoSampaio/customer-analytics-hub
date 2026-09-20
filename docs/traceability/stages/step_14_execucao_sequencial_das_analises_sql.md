@@ -8,9 +8,9 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Ex
 
 - Script: `src/sql/execution/run_sql_pipeline.py`
 - SHA-256 do script: `ffec9c81fc27a13e61e4835d5bdeff54eece24209c99c5d1daf81cadbf5ecdae`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.940393+00:00`
-- Status técnico informado: `unverified`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:21.388287+00:00`
+- Status técnico informado: `success`
 
 ### Como foi feito
 

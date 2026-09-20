@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Ma
 
 - Script: `src/silver/transformation/step_09_materializacao_silver.py`
 - SHA-256 do script: `3ffa140e67817982b20006e68ec4276a1a11d0ffa9ee9764cbb7dd28c85a66e7`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.933776+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.910905+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

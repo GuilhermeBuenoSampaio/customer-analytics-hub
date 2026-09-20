@@ -16,7 +16,7 @@ Documento atualizado automaticamente a partir da rastreabilidade validada.
 | 10 | Validação integral da qualidade da Silver | approved | 1 |
 | 11 | Especificação do modelo dimensional Gold | approved | 2 |
 | 12 | Materialização do modelo dimensional Gold | approved | 16 |
-| 13 | Carga Gold no SQL Server | pending_evidence | 0 |
+| 13 | Carga Gold no SQL Server | approved | 1 |
 | 14 | Execução sequencial das análises SQL | pending_evidence | 0 |
 
 ## Regra de governança

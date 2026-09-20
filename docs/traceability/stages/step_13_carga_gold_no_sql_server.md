@@ -8,9 +8,9 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Ca
 
 - Script: `src/gold/loading/step_13_carga_gold_sql_server.py`
 - SHA-256 do script: `b16229f87bf7758dbc67affa20bae2dbdce5aa9964d6ecc8867f7e3e67dcd844`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.939708+00:00`
-- Status técnico informado: `unverified`
+- Run ID: `retroativo_etapa_13_001`
+- Registro UTC: `2026-09-20T16:17:25.479128+00:00`
+- Status técnico informado: `success`
 
 ### Como foi feito
 
@@ -22,7 +22,7 @@ Garantir que o banco represente fielmente os Parquets aprovados.
 
 ## Evidências
 
-- Nenhuma evidência material localizada; etapa mantida pendente.
+- `outputs/logs/sql_load/sql_load_retroactive_20260920T161633Z.json` — SHA-256 `812d7f8c1d433f290b8727132b91988c78a48fa598f7f8960e7a56873d253682`
 
 ## Validação e critério de aceite
 

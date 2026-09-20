@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **Ma
 
 - Script: `src/ingestion/step_02_materializacao_bronze.py`
 - SHA-256 do script: `6d83bf8582d33b57dcb752626def4cdd7d7254e9ae190b4570feaee2583bc54b`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.925644+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.500782+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito

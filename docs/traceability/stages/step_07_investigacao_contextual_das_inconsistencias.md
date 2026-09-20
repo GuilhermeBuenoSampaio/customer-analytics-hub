@@ -8,8 +8,8 @@ Registrar a execução, as evidências e o critério de conclusão da etapa **In
 
 - Script: `src/bronze/profiling/step_07_investigacao_contextual_inconsistencias.py`
 - SHA-256 do script: `bf6800602a85437c53cc8f375f8d4aead731740d2f31122b8c90ec53d2b477c3`
-- Run ID: `retroactive`
-- Registro UTC: `2026-09-20T01:18:12.931818+00:00`
+- Run ID: `retroativo_inicial_001`
+- Registro UTC: `2026-09-20T15:45:20.809467+00:00`
 - Status técnico informado: `success`
 
 ### Como foi feito
