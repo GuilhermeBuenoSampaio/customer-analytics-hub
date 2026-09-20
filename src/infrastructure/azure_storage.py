@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import mimetypes
 import os
 from datetime import datetime, timezone
@@ -10,7 +11,11 @@ from pathlib import Path
 from typing import Iterable
 
 from azure.identity import DefaultAzureCredential
-from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceNotFoundError
+from azure.core.exceptions import (
+    ClientAuthenticationError,
+    HttpResponseError,
+    ResourceNotFoundError,
+)
 from azure.storage.blob import BlobServiceClient, ContentSettings
 
 
@@ -28,14 +33,14 @@ def calcular_sha256(caminho: Path) -> str:
 
 
 def _content_type(caminho: Path) -> str:
-    tipos = {
+    tipos_especificos = {
         ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         ".parquet": "application/vnd.apache.parquet",
         ".py": "text/x-python",
         ".sql": "application/sql",
         ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     }
-    return tipos.get(
+    return tipos_especificos.get(
         caminho.suffix.lower(),
         mimetypes.guess_type(caminho.name)[0] or "application/octet-stream",
     )
@@ -63,11 +68,17 @@ def destino_azure(caminho: Path, project_root: Path) -> str:
 
 class PublicadorAzure:
     def __init__(self) -> None:
-        self.credential = DefaultAzureCredential(exclude_interactive_browser_credential=False)
-        self.service = BlobServiceClient(account_url=ACCOUNT_URL, credential=self.credential)
+        self.credential = DefaultAzureCredential(
+            exclude_interactive_browser_credential=False
+        )
+        self.service = BlobServiceClient(
+            account_url=ACCOUNT_URL,
+            credential=self.credential,
+        )
         self.container = self.service.get_container_client(CONTAINER_NAME)
 
     def testar_conexao(self) -> dict:
+        """Valida autenticação, existência do container e permissão de leitura."""
         try:
             propriedades = self.container.get_container_properties()
             return {
@@ -77,21 +88,45 @@ class PublicadorAzure:
                 "ultima_modificacao_utc": propriedades.last_modified.isoformat(),
             }
         except ClientAuthenticationError as erro:
-            raise RuntimeError("Falha de autenticação. Execute 'az login'.") from erro
+            raise RuntimeError(
+                "Falha de autenticação no Azure. Execute 'az login' e tente novamente."
+            ) from erro
         except ResourceNotFoundError as erro:
-            raise RuntimeError(f"Container não encontrado: {CONTAINER_NAME}") from erro
+            raise RuntimeError(
+                f"O container '{CONTAINER_NAME}' não foi encontrado na conta "
+                f"'{STORAGE_ACCOUNT}'."
+            ) from erro
         except HttpResponseError as erro:
             if erro.status_code == 403:
                 raise PermissionError(
-                    "Acesso negado. Verifique a função Storage Blob Data Contributor."
+                    "Acesso negado. Confirme a função 'Storage Blob Data Contributor' "
+                    "na conta ou no container."
                 ) from erro
-            raise
+            raise RuntimeError(f"Erro ao acessar o Azure: {erro.message}") from erro
 
-    def listar_arquivos(self, prefixo: str | None = None, limite: int = 20) -> list[dict]:
-        arquivos = []
+    def listar_arquivos(
+        self,
+        prefixo: str | None = None,
+        limite: int | None = None,
+    ) -> list[dict]:
+        """Lista blobs para diagnóstico sem baixar nem modificar arquivos."""
+        arquivos: list[dict] = []
         for item in self.container.list_blobs(name_starts_with=prefixo):
-            arquivos.append({"nome": item.name, "tamanho_bytes": item.size})
-            if len(arquivos) >= limite:
+            arquivos.append(
+                {
+                    "nome": item.name,
+                    "tamanho_bytes": item.size,
+                    "ultima_modificacao_utc": (
+                        item.last_modified.isoformat() if item.last_modified else None
+                    ),
+                    "content_type": (
+                        item.content_settings.content_type
+                        if item.content_settings
+                        else None
+                    ),
+                }
+            )
+            if limite is not None and len(arquivos) >= limite:
                 break
         return arquivos
 
@@ -154,7 +189,13 @@ def localizar_artefatos_modificados(
         if not raiz.is_dir():
             continue
         for extensao in (
-            "*.docx", "*.json", "*.md", "*.parquet", "*.pdf", "*.txt", "*.xlsx"
+            "*.docx",
+            "*.json",
+            "*.md",
+            "*.parquet",
+            "*.pdf",
+            "*.txt",
+            "*.xlsx",
         ):
             for caminho in raiz.rglob(extensao):
                 if caminho.name.startswith("~$") or ".tmp." in caminho.name:
@@ -185,3 +226,17 @@ def publicar_artefatos_modificados(
         )
         for arquivo in artefatos
     ]
+
+
+def main() -> None:
+    """Teste seguro de acesso quando este módulo for executado diretamente."""
+    publicador = PublicadorAzure()
+    resultado = {
+        "conexao": publicador.testar_conexao(),
+        "amostra_arquivos": publicador.listar_arquivos(limite=20),
+    }
+    print(json.dumps(resultado, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()
