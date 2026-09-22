@@ -1011,7 +1011,7 @@ customer-analytics-hub/
 | Consulta de reconciliação criada | Concluído |
 | Documento técnico revisado | Concluído |
 | Resumo executivo concluído | Concluído |
-| Novos artefatos versionados no GitHub | Pendente |
+| Novos artefatos versionados no GitHub | Concluído |
 
 A EDA geral será considerada definitivamente concluída após:
 

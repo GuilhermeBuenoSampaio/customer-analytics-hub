@@ -352,7 +352,6 @@ Para gerar um arquivo ZIP sem `.env`, `.venv`, `.git`, dados e artefatos locais,
 
 ## Próximas etapas
 
-- Atualizar o GitHub com os artefatos finais da EDA geral;
 - Desenvolver a análise Comercial;
 - Investigar recorrência, frequência e comportamento de compra;
 - Avaliar receita, margem e ticket médio por produto, categoria e segmento;
