@@ -2,13 +2,21 @@
 
 Projeto de engenharia, arquitetura e análise de dados desenvolvido para demonstrar a construção completa de uma solução analítica, desde a avaliação técnica da fonte até a produção de análises orientadas às necessidades do negócio.
 
-## Status do projeto
-
 **Em desenvolvimento.**
 
-Etapa atual: EDA geral sobre o modelo dimensional Gold e construção do dashboard no Power BI.
+Etapa concluída: EDA geral sobre o modelo dimensional Gold, com dashboard no Power BI, catálogo de métricas, documentação técnica, resumo executivo e reconciliação SQL Server × DAX.
 
-As etapas técnicas 1 a 12 possuem evidências materiais e documentação retroativa. As etapas SQL permanecem sujeitas à execução e validação no ambiente local.
+Resultado da reconciliação:
+
+- 8 métricas avaliadas;
+- 8 métricas aprovadas;
+- nenhuma divergência identificada;
+- granularidades das principais tabelas-fato validadas;
+- definições canônicas preparadas para reutilização.
+
+Próxima etapa: desenvolvimento da análise Comercial.
+
+As etapas técnicas 1 a 12 possuem evidências materiais e documentação retroativa. As etapas futuras continuarão sujeitas à execução e validação no ambiente local antes de serem declaradas concluídas.
 
 ## Dashboard — Visão Geral
 
@@ -34,6 +42,41 @@ O arquivo do relatório está disponível em:
 ```text
 power_bi/eda_geral/Customer_Analytics_Hub_EDA_Geral.pbix
 ```
+
+## Validação das métricas
+
+As oito métricas da EDA geral foram reconciliadas entre SQL Server e DAX.
+
+| Métrica | Resultado validado |
+|---|---:|
+| Clientes analisados | 330 |
+| Pedidos | 2.789 |
+| Itens vendidos | 13.375 |
+| Receita líquida | R$ 289.904,66 |
+| Margem bruta | R$ 151.248,65 |
+| Ticket médio | R$ 103,95 |
+| Taxa de atraso | 9,90% |
+| Avaliação média | 4,27 |
+
+A reconciliação apresentou:
+
+- 8 métricas avaliadas;
+- 8 métricas aprovadas;
+- 0 métricas reprovadas;
+- nenhuma diferença entre os resultados SQL e DAX;
+- nenhuma duplicidade nas chaves avaliadas das principais tabelas-fato.
+
+### Documentação da EDA geral
+
+| Documento | Caminho |
+|---|---|
+| Documentação técnica | `docs/technical/05_eda_geral/eda_geral_documentacao_tecnica.md` |
+| Reconciliação SQL × DAX | `docs/technical/05_eda_geral/reconciliacao_metricas_eda_geral.md` |
+| Resumo executivo | `docs/executive/05_eda_geral/resumo_executivo_eda_geral.md` |
+| Consulta de reconciliação | `sql/05_eda_geral/12_reconciliacao_metricas_eda_geral.sql` |
+| Evidência visual | `docs/images/reconciliacao_metricas_sql_dax.png` |
+
+Esses resultados estabelecem as definições canônicas que serão reutilizadas nas análises Comercial, Financeira, Logística e de Marketing.
 
 ## Objetivo
 
@@ -309,12 +352,12 @@ Para gerar um arquivo ZIP sem `.env`, `.venv`, `.git`, dados e artefatos locais,
 
 ## Próximas etapas
 
-* Consolidar a documentação da EDA geral;
-* Validar os indicadores entre SQL Server e Power BI;
-* Desenvolver a análise comercial;
-* Desenvolver a análise financeira;
-* Desenvolver a análise logística;
-* Desenvolver a análise de marketing;
-* Produzir o relatório técnico completo;
-* Produzir a apresentação executiva;
-* Publicar os resultados selecionados no GitHub, LinkedIn e site de portfólio.
+- Atualizar o GitHub com os artefatos finais da EDA geral;
+- Desenvolver a análise Comercial;
+- Investigar recorrência, frequência e comportamento de compra;
+- Avaliar receita, margem e ticket médio por produto, categoria e segmento;
+- Analisar campanhas, canais e sazonalidade;
+- Desenvolver posteriormente as análises Financeira, Logística e de Marketing;
+- Manter a reconciliação SQL Server × DAX nas etapas futuras;
+- Atualizar a documentação técnica conforme o projeto evoluir;
+- Produzir futuramente a apresentação executiva consolidada do projeto.
