@@ -8,8 +8,8 @@
 | Projeto                | Customer Analytics Hub                                       |
 | Camada analítica       | Gold                                                         |
 | Ferramentas principais | Python, SQL Server, Power Query, Power BI e DAX              |
-| Estado                 | Em desenvolvimento                                           |
-| Versão inicial         | 1.0                                                          |
+| Estado                 | Concluída                                                    |
+| Versão                 | 1.1                                                          |
 | Escopo                 | Visão geral dos principais indicadores e sua evolução mensal |
 
 ---
@@ -981,16 +981,13 @@ customer-analytics-hub/
 
 ## 26. Próximas etapas
 
-1. Criar o resumo executivo da EDA geral;
-2. Revisar as limitações e conclusões da visão geral;
-3. Realizar a revisão final da documentação técnica;
-4. Versionar a consulta SQL, a reconciliação e as evidências;
-5. Atualizar o README com o encerramento da EDA geral;
-6. Atualizar o arquivo Power BI com a página de validação;
-7. Executar o commit e o push dos novos artefatos;
-8. Iniciar a análise do domínio Comercial;
-9. Reutilizar as definições canônicas nos demais domínios;
-10. Atualizar a documentação conforme o projeto evoluir.
+1. Iniciar a análise do domínio Comercial;
+2. Criar o catálogo de métricas comerciais;
+3. Reutilizar as definições canônicas aprovadas na EDA geral;
+4. Desenvolver e validar as consultas comerciais no SQL Server;
+5. Reconciliar as futuras medidas comerciais entre SQL Server e DAX;
+6. Desenvolver posteriormente as análises Financeira, Logística e de Marketing;
+7. Atualizar a documentação técnica e a governança conforme o projeto evoluir.
 
 
 ---
@@ -1013,12 +1010,7 @@ customer-analytics-hub/
 | Resumo executivo concluído | Concluído |
 | Novos artefatos versionados no GitHub | Concluído |
 
-A EDA geral será considerada definitivamente concluída após:
-
-1. criação do resumo executivo;
-2. revisão final da documentação;
-3. versionamento dos novos artefatos;
-4. atualização do README com o encerramento da etapa.
+A EDA geral está definitivamente concluída. Todos os critérios técnicos, analíticos, documentais e de versionamento foram atendidos.
 
 ---
 

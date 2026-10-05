@@ -10,7 +10,7 @@
 | Banco                   | CustomerAnalyticsHub                       |
 | Ferramentas             | SQL Server e Power BI                      |
 | Quantidade de métricas  | 8                                          |
-| Status da reconciliação | Pendente de validação final SQL versus DAX |
+| Status da reconciliação | Aprovada                                   |
 
 ---
 
@@ -28,7 +28,7 @@ O catálogo tem como objetivos:
 * apoiar auditorias e reconciliações;
 * manter os indicadores consistentes entre os domínios comercial, financeiro, logístico e de marketing.
 
-Uma métrica somente deverá ser considerada aprovada depois que sua definição, cálculo e resultado forem validados.
+As oito métricas deste catálogo tiveram definição, cálculo e resultado validados entre SQL Server e DAX.
 
 ---
 
@@ -83,7 +83,7 @@ Alterações posteriores devem gerar uma nova versão da definição quando modi
 | Tipo                  | Contagem distinta                                       |
 | Domínios consumidores | EDA geral, comercial, financeiro, logística e marketing |
 | Versão                | 1.0                                                     |
-| Status                | Implementada; reconciliação final pendente              |
+| Status                | Aprovada                                                 |
 
 ## 4.2 Definição de negócio
 
@@ -159,7 +159,7 @@ Uma redução mensal pode indicar menor atividade, sazonalidade, perda de client
 | Tipo                  | Contagem de linhas                         |
 | Domínios consumidores | Todos                                      |
 | Versão                | 1.0                                        |
-| Status                | Implementada; reconciliação final pendente |
+| Status                | Aprovada                                   |
 
 ## 5.2 Definição de negócio
 
@@ -246,7 +246,7 @@ Deve ser analisada junto de clientes, itens vendidos, receita e ticket médio pa
 | Tipo                  | Soma                                         |
 | Domínios consumidores | EDA geral, comercial, financeiro e marketing |
 | Versão                | 1.0                                          |
-| Status                | Implementada; reconciliação final pendente   |
+| Status                | Aprovada                                     |
 
 ## 6.2 Definição de negócio
 
@@ -322,7 +322,7 @@ Quando comparada aos pedidos, permite estimar a quantidade média de itens por p
 | Tipo                  | Soma monetária                               |
 | Domínios consumidores | EDA geral, comercial, financeiro e marketing |
 | Versão                | 1.0                                          |
-| Status                | Implementada; reconciliação final pendente   |
+| Status                | Aprovada                                     |
 
 ## 7.2 Definição de negócio
 
@@ -399,7 +399,7 @@ Seu crescimento deve ser comparado com custos, margem, pedidos e itens vendidos.
 | Tipo                  | Razão                                        |
 | Domínios consumidores | EDA geral, comercial, financeiro e marketing |
 | Versão                | 1.0                                          |
-| Status                | Implementada; reconciliação final pendente   |
+| Status                | Aprovada                                     |
 
 ## 8.2 Definição de negócio
 
@@ -492,7 +492,7 @@ A métrica isolada não identifica qual desses fatores provocou a alteração.
 | Tipo                  | Soma monetária                             |
 | Domínios consumidores | EDA geral, comercial e financeiro          |
 | Versão                | 1.0                                        |
-| Status                | Implementada; reconciliação final pendente |
+| Status                | Aprovada                                   |
 
 ## 9.2 Definição de negócio
 
@@ -568,7 +568,7 @@ O crescimento da receita sem crescimento proporcional da margem pode indicar mud
 | Tipo                  | Média aritmética                           |
 | Domínios consumidores | EDA geral, logística e clientes            |
 | Versão                | 1.0                                        |
-| Status                | Implementada; reconciliação final pendente |
+| Status                | Aprovada                                   |
 
 ## 10.2 Definição de negócio
 
@@ -651,7 +651,7 @@ Deve ser analisada com:
 | Tipo                  | Proporção                                  |
 | Domínios consumidores | EDA geral e logística                      |
 | Versão                | 1.0                                        |
-| Status                | Implementada; reconciliação final pendente |
+| Status                | Aprovada                                   |
 
 ## 11.2 Definição de negócio
 
@@ -796,14 +796,14 @@ Para cada métrica:
 
 | ID          | Resultado SQL | Resultado DAX | Diferença | Status   | Evidência |
 | ----------- | ------------: | ------------: | --------: | -------- | --------- |
-| MET-EDA-001 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-002 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-003 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-004 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-005 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-006 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-007 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
-| MET-EDA-008 |      Pendente |      Pendente |  Pendente | Pendente | Pendente  |
+| MET-EDA-001 |           330 |           330 |         0 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-002 |         2.789 |         2.789 |         0 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-003 |        13.375 |        13.375 |         0 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-004 | R$ 289.904,66 | R$ 289.904,66 | R$ 0,00 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-005 |     R$ 103,95 |     R$ 103,95 | R$ 0,00 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-006 | R$ 151.248,65 | R$ 151.248,65 | R$ 0,00 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-007 |          4,27 |          4,27 |      0,00 | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
+| MET-EDA-008 |         9,90% |         9,90% | 0,00 p.p. | Aprovada | `docs/images/reconciliacao_metricas_sql_dax.png` |
 
 ---
 
@@ -837,7 +837,7 @@ As medidas devem apresentar o mesmo resultado quando o mesmo período for aplica
 
 | Versão | Alteração                                | Status       |
 | ------ | ---------------------------------------- | ------------ |
-| 1.0    | Criação das oito definições da EDA geral | Em validação |
+| 1.0    | Criação e reconciliação das oito definições da EDA geral | Aprovada |
 
 Alterações futuras devem registrar:
 
@@ -855,23 +855,25 @@ Alterações futuras devem registrar:
 
 # 15. Critério de aprovação do catálogo
 
-O catálogo será considerado aprovado quando:
+O catálogo foi aprovado porque:
 
-* as oito definições estiverem revisadas;
-* as fórmulas DAX estiverem iguais às implementadas;
-* as colunas SQL estiverem confirmadas;
-* as consultas SQL forem executadas;
-* os resultados SQL e Power BI forem reconciliados;
-* as evidências estiverem armazenadas;
-* todas as métricas estiverem classificadas como aprovadas;
-* eventuais diferenças estiverem justificadas;
-* o documento estiver versionado no GitHub.
+* as oito definições foram revisadas;
+* as fórmulas DAX foram confirmadas;
+* as colunas SQL foram verificadas;
+* as consultas SQL foram executadas;
+* os resultados SQL e Power BI foram reconciliados;
+* as evidências foram armazenadas;
+* todas as métricas foram classificadas como aprovadas;
+* nenhuma diferença foi identificada;
+* o documento foi versionado no GitHub.
 
 ---
 
 # 16. Conclusão
 
 As oito métricas da EDA geral formam a base compartilhada das análises futuras.
+
+A reconciliação SQL Server × DAX foi aprovada em 21/09/2026, com oito métricas avaliadas, oito aprovadas, nenhuma reprovada e nenhuma diferença identificada.
 
 A formalização das definições evita que diferentes áreas calculem o mesmo indicador de maneiras incompatíveis.
 

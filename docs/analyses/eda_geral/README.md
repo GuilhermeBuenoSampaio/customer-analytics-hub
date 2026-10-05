@@ -72,7 +72,8 @@ Também são utilizados objetos auxiliares dos schemas:
 - SQL Server;
 - SQL;
 - Git e GitHub;
-- Microsoft Word.
+- Microsoft Word;
+- Power BI e DAX.
 
 ## Volumetria principal
 
@@ -114,12 +115,21 @@ Correlação não foi interpretada como causalidade. Possíveis outliers não fo
 - EDA geral: concluída;
 - 60 perguntas: respondidas;
 - relatório técnico: publicado;
-- dashboard Power BI: próxima etapa.
+- dashboard Power BI: concluído e versionado;
+- reconciliação SQL Server × DAX: aprovada;
+- métricas canônicas reconciliadas: 8 de 8;
+- resumo executivo: concluído;
+- documentação técnica: concluída.
 
-## Próximos artefatos
+## Artefatos concluídos
 
-- dicionário de métricas;
-- matriz de rastreabilidade das perguntas;
+- catálogo das métricas da EDA geral;
+- consulta de reconciliação SQL Server × DAX;
+- evidência visual da reconciliação;
 - dashboard da EDA geral no Power BI;
-- apresentação executiva;
-- análises específicas das áreas comercial, financeira, logística e marketing.
+- documentação técnica;
+- resumo executivo.
+
+## Próxima etapa
+
+Iniciar a Análise Comercial, reutilizando as métricas canônicas aprovadas e aprofundando receita, margem, ticket médio, clientes, produtos, campanhas, descontos e incentivos comerciais. As análises Financeira, Logística e de Marketing serão desenvolvidas posteriormente.
