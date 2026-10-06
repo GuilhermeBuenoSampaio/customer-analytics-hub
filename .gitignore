@@ -51,3 +51,6 @@ logs/
 .coverage
 htmlcov/
 coverage.xml
+
+# Evidências e manifestos gerados durante as execuções
+quality/
